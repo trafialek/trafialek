@@ -31,29 +31,21 @@ body{
   margin:0 auto;
   padding:0 20px;
 }
-section{margin:140px 0;}
-header{padding:25px 0;border-bottom:1px solid var(--border);background:var(--card);}
-.header-inner{display:flex;justify-content:space-between;align-items:center;}
-.logo{font-weight:600;letter-spacing:2px;}
-.controls{display:flex;align-items:center;gap:15px;}
-nav a{margin-left:20px;text-decoration:none;color:var(--text);}
-.bubble{display:flex;align-items:center;padding:4px;border-radius:20px;border:1px solid var(--border);background:var(--card);}
-.toggle{position:relative;display:flex;width:80px;}
-.toggle span{flex:1;text-align:center;padding:6px 0;z-index:2;cursor:pointer;opacity:.5;transition:.3s;font-size:12px;}
-.toggle span.active{opacity:1;}
-.toggle::before{content:"";position:absolute;width:50%;height:100%;background:var(--bg);border-radius:20px;transition:.3s;}
-.toggle.right::before{left:50%;}
 
-.hero{text-align:center;}
-.hero h1{font-size:36px;margin-bottom:25px;}
-.hero p{max-width:700px;margin:auto;color:var(--accent);line-height:1.8;}
+/* Zmniejszony odstęp całej sekcji hero i projektów od góry strony */
+.hero{
+  text-align:center;
+  margin-top:60px; /* przybliżone do góry */
+}
+.hero h1{font-size:36px;margin-bottom:15px;}
+.hero p{max-width:700px;margin:auto;color:var(--accent);line-height:1.8;margin-bottom:40px;}
 
 /* Tytuł sekcji Projekty */
 .projects-title{
   text-align:center;
   font-size:28px;
   font-weight:600;
-  margin:40px 0 30px; /* przybliżona cała sekcja do góry względem hero */
+  margin:30px 0 30px; /* utrzymany czytelny dystans */
   color:var(--text);
 }
 
@@ -67,7 +59,7 @@ nav a{margin-left:20px;text-decoration:none;color:var(--text);}
 }
 .slider-window{
   overflow:hidden;
-  width:940px; /* większa szerokość dla projektów */
+  width:940px;
 }
 .projects-wrapper{
   display:flex;
@@ -77,7 +69,7 @@ nav a{margin-left:20px;text-decoration:none;color:var(--text);}
 .project{
   min-width:280px;
   max-width:280px;
-  height:auto; /* wysokość dopasowana do treści projektu */
+  height:auto;
   background:var(--card);
   border:1px solid var(--border);
   border-radius:12px;
@@ -152,6 +144,17 @@ nav a{margin-left:20px;text-decoration:none;color:var(--text);}
   .hero h1{font-size:26px;}
   nav a{margin-left:10px;font-size:13px;}
 }
+header{padding:25px 0;border-bottom:1px solid var(--border);background:var(--card);}
+.header-inner{display:flex;justify-content:space-between;align-items:center;}
+.logo{font-weight:600;letter-spacing:2px;}
+.controls{display:flex;align-items:center;gap:15px;}
+nav a{margin-left:20px;text-decoration:none;color:var(--text);}
+.bubble{display:flex;align-items:center;padding:4px;border-radius:20px;border:1px solid var(--border);background:var(--card);}
+.toggle{position:relative;display:flex;width:80px;}
+.toggle span{flex:1;text-align:center;padding:6px 0;z-index:2;cursor:pointer;opacity:.5;transition:.3s;font-size:12px;}
+.toggle span.active{opacity:1;}
+.toggle::before{content:"";position:absolute;width:50%;height:100%;background:var(--bg);border-radius:20px;transition:.3s;}
+.toggle.right::before{left:50%;}
 </style>
 </head>
 <body>
