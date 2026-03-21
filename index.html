@@ -37,6 +37,12 @@
       font-size:18px;
     }
 
+    .right-controls{
+      display:flex;
+      align-items:center;
+      gap:20px;
+    }
+
     nav a{
       text-decoration:none;
       color:var(--text);
@@ -46,6 +52,20 @@
     }
 
     nav a:hover{opacity:.6}
+
+    .lang-switch{
+      font-size:12px;
+      cursor:pointer;
+      border:1px solid var(--border);
+      padding:6px 10px;
+      border-radius:6px;
+      background:white;
+      transition:all .2s;
+    }
+
+    .lang-switch:hover{
+      background:var(--bg);
+    }
 
     .hero{
       padding:100px 10%;
@@ -156,16 +176,19 @@
 
 <header>
   <div class="logo">ARCHITEKT</div>
-  <nav>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#about">O mnie</a>
-    <a href="#contact">Kontakt</a>
-  </nav>
+  <div class="right-controls">
+    <nav>
+      <a href="#portfolio" data-key="navPortfolio">Portfolio</a>
+      <a href="#about" data-key="navAbout">O mnie</a>
+      <a href="#contact" data-key="navContact">Kontakt</a>
+    </nav>
+    <button class="lang-switch" onclick="toggleLanguage()">EN</button>
+  </div>
 </header>
 
 <section class="hero">
-  <h1>Nowoczesna architektura i przemyślana przestrzeń</h1>
-  <p>Portfolio projektów architektonicznych obejmujących budynki mieszkalne, przestrzenie publiczne oraz koncepcje urbanistyczne.</p>
+  <h1 data-key="heroTitle">Nowoczesna architektura i przemyślana przestrzeń</h1>
+  <p data-key="heroDesc">Portfolio projektów architektonicznych obejmujących budynki mieszkalne, przestrzenie publiczne oraz koncepcje urbanistyczne.</p>
 </section>
 
 <section id="portfolio" class="portfolio">
@@ -173,40 +196,40 @@
   <div class="project">
     <a href="project1.html"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Projekt" /></a>
     <div class="project-content">
-      <div class="project-title">Dom jednorodzinny</div>
-      <div class="project-desc">Minimalistyczny projekt domu w otoczeniu natury.</div>
+      <div class="project-title" data-key="p1Title">Dom jednorodzinny</div>
+      <div class="project-desc" data-key="p1Desc">Minimalistyczny projekt domu w otoczeniu natury.</div>
     </div>
   </div>
 
   <div class="project">
     <a href="project2.html"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab" alt="Projekt" /></a>
     <div class="project-content">
-      <div class="project-title">Budynek biurowy</div>
-      <div class="project-desc">Nowoczesna bryła z dużymi przeszkleniami.</div>
+      <div class="project-title" data-key="p2Title">Budynek biurowy</div>
+      <div class="project-desc" data-key="p2Desc">Nowoczesna bryła z dużymi przeszkleniami.</div>
     </div>
   </div>
 
   <div class="project">
     <a href="project3.html"><img src="https://images.unsplash.com/photo-1505843513577-22bb7d21e455" alt="Projekt" /></a>
     <div class="project-content">
-      <div class="project-title">Osiedle mieszkaniowe</div>
-      <div class="project-desc">Koncepcja urbanistyczna dla nowej dzielnicy.</div>
+      <div class="project-title" data-key="p3Title">Osiedle mieszkaniowe</div>
+      <div class="project-desc" data-key="p3Desc">Koncepcja urbanistyczna dla nowej dzielnicy.</div>
     </div>
   </div>
 
 </section>
 
 <section id="about" class="about">
-  <h2>O mnie</h2>
-  <p>
-    Jestem studentem architektury specjalizującym się w projektowaniu nowoczesnych i funkcjonalnych przestrzeni. 
+  <h2 data-key="aboutTitle">O mnie</h2>
+  <p data-key="aboutDesc">
+    Jestem architektem specjalizującym się w projektowaniu nowoczesnych i funkcjonalnych przestrzeni. 
     Moje projekty łączą estetykę z praktycznym podejściem do użytkowania przestrzeni.
   </p>
 </section>
 
 <section id="contact" class="contact">
-  <h2>Kontakt</h2>
-  <p>Email: adrian.trafialek@gmail.com</p>
+  <h2 data-key="contactTitle">Kontakt</h2>
+  <p>Email: kontakt@architekt.pl</p>
 
   <div class="socials">
     <a href="#">Instagram</a>
@@ -216,9 +239,48 @@
   </div>
 </section>
 
-<footer>
+<footer data-key="footer">
   © 2026 Portfolio Architekta
 </footer>
+
+<script>
+  let currentLang = 'pl';
+
+  const translations = {
+    en: {
+      navPortfolio: "Portfolio",
+      navAbout: "About",
+      navContact: "Contact",
+      heroTitle: "Modern architecture and thoughtful space",
+      heroDesc: "A portfolio of architectural projects including residential buildings, public spaces, and urban concepts.",
+      p1Title: "Single-family house",
+      p1Desc: "A minimalist house design surrounded by nature.",
+      p2Title: "Office building",
+      p2Desc: "Modern form with large glazing.",
+      p3Title: "Housing estate",
+      p3Desc: "Urban concept for a new district.",
+      aboutTitle: "About me",
+      aboutDesc: "I am an architect specializing in modern and functional spaces. My projects combine aesthetics with practical design.",
+      contactTitle: "Contact",
+      footer: "© 2026 Architect Portfolio"
+    },
+    pl: {}
+  };
+
+  function toggleLanguage(){
+    currentLang = currentLang === 'pl' ? 'en' : 'pl';
+    document.querySelector('.lang-switch').innerText = currentLang === 'pl' ? 'EN' : 'PL';
+
+    document.querySelectorAll('[data-key]').forEach(el => {
+      const key = el.getAttribute('data-key');
+      if(currentLang === 'pl'){
+        location.reload();
+      } else {
+        el.innerText = translations.en[key];
+      }
+    });
+  }
+</script>
 
 </body>
 </html>
