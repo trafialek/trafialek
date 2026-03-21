@@ -11,7 +11,6 @@
   --accent:#6b6b6b;
   --card:#ffffff;
   --border:#e2e2e2;
-  --highlight:#ffb400; /* kolor wyróżnienia */
 }
 body.dark{
   --bg:#121212;
@@ -19,7 +18,6 @@ body.dark{
   --accent:#aaaaaa;
   --card:#1e1e1e;
   --border:#2c2c2c;
-  --highlight:#ffb400;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{
@@ -69,7 +67,7 @@ nav a{margin-left:20px;text-decoration:none;color:var(--text);}
 }
 .slider-window{
   overflow:hidden;
-  width:860px;
+  width:860px; 
 }
 .projects-wrapper{
   display:flex;
@@ -84,11 +82,16 @@ nav a{margin-left:20px;text-decoration:none;color:var(--text);}
   border-radius:12px;
   overflow:hidden;
   flex-shrink:0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .project img{width:100%;height:180px;object-fit:cover;}
 .project-content{padding:18px;}
 .project-content b{display:block;margin-bottom:8px;}
 .project-content p{font-size:14px;color:var(--accent);line-height:1.6;}
+.project:hover{
+  transform:scale(1.05);
+  box-shadow:0 10px 20px rgba(0,0,0,0.1);
+}
 .arrow{
   position:absolute;
   top:50%;
@@ -106,13 +109,13 @@ nav a{margin-left:20px;text-decoration:none;color:var(--text);}
 .arrow.left{left:0;}
 .arrow.right{right:0;}
 
-/* O mnie - zdjęcie i tekst */
+/* O mnie minimalistyczne */
 .about{
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
   align-items:flex-start;
-  text-align:left;
+  text-align:center;
   gap:40px;
 }
 .about img{
@@ -125,18 +128,8 @@ nav a{margin-left:20px;text-decoration:none;color:var(--text);}
   max-width:700px;
   color:var(--accent);
   line-height:1.8;
-}
-
-/* Animacja wyróżnienia słów */
-.highlight{
-  color:var(--highlight);
-  font-weight:600;
-  position:relative;
-  animation:pulse 2s infinite;
-}
-@keyframes pulse{
-  0%,100%{opacity:1; text-shadow: 0 0 0px var(--highlight);}
-  50%{opacity:1; text-shadow: 0 0 8px var(--highlight);}
+  text-align:center;
+  font-size:16px;
 }
 
 /* Wyśrodkowanie w mobilnych */
@@ -195,8 +188,7 @@ nav a{margin-left:20px;text-decoration:none;color:var(--text);}
   <img src="https://images.unsplash.com/photo-1603415526960-f0b7a3b6c0f4" alt="Moje zdjęcie">
   <div class="about-text">
     <h2 id="aboutTitle">O mnie</h2>
-    <p id="aboutDesc">Jestem <span class="highlight">architektem</span> skupionym na tworzeniu <span class="highlight">przestrzeni</span>, które są zarówno <span class="highlight">funkcjonalne</span>, jak i <span class="highlight">ponadczasowe</span>. Inspiruję się <span class="highlight">naturą</span>, <span class="highlight">światłem</span> i proporcjami.  
-    Mogę tutaj dodać więcej <span class="highlight">tekstu</span>, opowiedzieć o swoim <span class="highlight">doświadczeniu</span>, <span class="highlight">projektach</span> i <span class="highlight">filozofii</span> projektowania.</p>
+    <p id="aboutDesc">Jestem architektem tworzącym przestrzenie łączące funkcjonalność i estetykę. Inspiruję się naturą, światłem oraz proporcjami. Moje projekty są przemyślane i ponadczasowe. Chcę, aby każdy projekt był indywidualną odpowiedzią na potrzeby użytkownika i otoczenia.</p>
   </div>
 </section>
 
@@ -263,27 +255,19 @@ lang.onclick=()=>{
   if(enBtn.classList.contains('active')){
     title.innerText="Modern architecture and thoughtful space";
     desc.innerText="I design spaces that combine functionality and aesthetics.";
-    p1.innerText="House";
-    p2.innerText="Office";
-    p3.innerText="Housing";
-    p4.innerText="Restaurant";
-    p5.innerText="Cultural center";
+    p1.innerText="House"; p2.innerText="Office"; p3.innerText="Housing"; p4.innerText="Restaurant"; p5.innerText="Cultural center";
     projectsTitle.innerText="Projects";
     aboutTitle.innerText="About";
-    aboutDesc.innerHTML="I am an <span class='highlight'>architect</span> focused on creating <span class='highlight'>spaces</span> that are <span class='highlight'>functional</span> and <span class='highlight'>timeless</span>. I draw inspiration from <span class='highlight'>nature</span>, <span class='highlight'>light</span>, and proportions. You can add more <span class='highlight'>text</span> about your <span class='highlight'>experience</span>, <span class='highlight'>projects</span>, and <span class='highlight'>design philosophy</span>.";
+    aboutDesc.innerText="I am an architect creating spaces that combine functionality and aesthetics. I draw inspiration from nature, light, and proportions. My designs are thoughtful and timeless, tailored to the needs of the user.";
     contactTitle.innerText="Contact";
     footer.innerText="© 2026 Architect Portfolio";
   }else{
     title.innerText="Nowoczesna architektura i przemyślana przestrzeń";
     desc.innerText="Tworzę projekty, które łączą funkcjonalność, estetykę i kontekst miejsca.";
-    p1.innerText="Dom jednorodzinny";
-    p2.innerText="Biurowiec";
-    p3.innerText="Osiedle";
-    p4.innerText="Restauracja";
-    p5.innerText="Centrum kultury";
+    p1.innerText="Dom jednorodzinny"; p2.innerText="Biurowiec"; p3.innerText="Osiedle"; p4.innerText="Restauracja"; p5.innerText="Centrum kultury";
     projectsTitle.innerText="Projekty";
     aboutTitle.innerText="O mnie";
-    aboutDesc.innerHTML="Jestem <span class='highlight'>architektem</span> skupionym na tworzeniu <span class='highlight'>przestrzeni</span>, które są zarówno <span class='highlight'>funkcjonalne</span>, jak i <span class='highlight'>ponadczasowe</span>. Inspiruję się <span class='highlight'>naturą</span>, <span class='highlight'>światłem</span> i proporcjami. Możesz dodać więcej <span class='highlight'>tekstu</span> o swoim <span class='highlight'>doświadczeniu</span> i <span class='highlight'>projektach</span>.";
+    aboutDesc.innerText="Jestem architektem tworzącym przestrzenie łączące funkcjonalność i estetykę. Inspiruję się naturą, światłem oraz proporcjami. Moje projekty są przemyślane i ponadczasowe. Chcę, aby każdy projekt był indywidualną odpowiedzią na potrzeby użytkownika i otoczenia.";
     contactTitle.innerText="Kontakt";
     footer.innerText="© 2026 Portfolio Architekta";
   }
