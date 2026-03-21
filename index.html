@@ -11,6 +11,7 @@
   --accent:#6b6b6b;
   --card:#ffffff;
   --border:#e2e2e2;
+  --highlight:#ffb400; /* kolor wyróżnienia */
 }
 body.dark{
   --bg:#121212;
@@ -18,6 +19,7 @@ body.dark{
   --accent:#aaaaaa;
   --card:#1e1e1e;
   --border:#2c2c2c;
+  --highlight:#ffb400;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{
@@ -67,7 +69,7 @@ nav a{margin-left:20px;text-decoration:none;color:var(--text);}
 }
 .slider-window{
   overflow:hidden;
-  width:860px; /* 3 projekty po 260px + 2*35px gap */
+  width:860px;
 }
 .projects-wrapper{
   display:flex;
@@ -123,6 +125,18 @@ nav a{margin-left:20px;text-decoration:none;color:var(--text);}
   max-width:700px;
   color:var(--accent);
   line-height:1.8;
+}
+
+/* Animacja wyróżnienia słów */
+.highlight{
+  color:var(--highlight);
+  font-weight:600;
+  position:relative;
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{
+  0%,100%{opacity:1; text-shadow: 0 0 0px var(--highlight);}
+  50%{opacity:1; text-shadow: 0 0 8px var(--highlight);}
 }
 
 /* Wyśrodkowanie w mobilnych */
@@ -181,8 +195,8 @@ nav a{margin-left:20px;text-decoration:none;color:var(--text);}
   <img src="https://images.unsplash.com/photo-1603415526960-f0b7a3b6c0f4" alt="Moje zdjęcie">
   <div class="about-text">
     <h2 id="aboutTitle">O mnie</h2>
-    <p id="aboutDesc">Jestem architektem skupionym na tworzeniu przestrzeni, które są zarówno funkcjonalne, jak i ponadczasowe. Inspiruję się naturą, światłem i proporcjami.  
-    Mogę tutaj dodać więcej tekstu, opowiedzieć o swoim doświadczeniu, projektach, filozofii projektowania i inspiracjach. Dzięki temu odwiedzający poznają mnie lepiej.</p>
+    <p id="aboutDesc">Jestem <span class="highlight">architektem</span> skupionym na tworzeniu <span class="highlight">przestrzeni</span>, które są zarówno <span class="highlight">funkcjonalne</span>, jak i <span class="highlight">ponadczasowe</span>. Inspiruję się <span class="highlight">naturą</span>, <span class="highlight">światłem</span> i proporcjami.  
+    Mogę tutaj dodać więcej <span class="highlight">tekstu</span>, opowiedzieć o swoim <span class="highlight">doświadczeniu</span>, <span class="highlight">projektach</span> i <span class="highlight">filozofii</span> projektowania.</p>
   </div>
 </section>
 
@@ -256,7 +270,7 @@ lang.onclick=()=>{
     p5.innerText="Cultural center";
     projectsTitle.innerText="Projects";
     aboutTitle.innerText="About";
-    aboutDesc.innerText="Architect focused on timeless and functional design. Here you can add more text about your experience, projects, and design philosophy.";
+    aboutDesc.innerHTML="I am an <span class='highlight'>architect</span> focused on creating <span class='highlight'>spaces</span> that are <span class='highlight'>functional</span> and <span class='highlight'>timeless</span>. I draw inspiration from <span class='highlight'>nature</span>, <span class='highlight'>light</span>, and proportions. You can add more <span class='highlight'>text</span> about your <span class='highlight'>experience</span>, <span class='highlight'>projects</span>, and <span class='highlight'>design philosophy</span>.";
     contactTitle.innerText="Contact";
     footer.innerText="© 2026 Architect Portfolio";
   }else{
@@ -269,7 +283,7 @@ lang.onclick=()=>{
     p5.innerText="Centrum kultury";
     projectsTitle.innerText="Projekty";
     aboutTitle.innerText="O mnie";
-    aboutDesc.innerText="Jestem architektem skupionym na projektowaniu przestrzeni. Możesz tutaj dodać więcej tekstu o swoim doświadczeniu i projektach.";
+    aboutDesc.innerHTML="Jestem <span class='highlight'>architektem</span> skupionym na tworzeniu <span class='highlight'>przestrzeni</span>, które są zarówno <span class='highlight'>funkcjonalne</span>, jak i <span class='highlight'>ponadczasowe</span>. Inspiruję się <span class='highlight'>naturą</span>, <span class='highlight'>światłem</span> i proporcjami. Możesz dodać więcej <span class='highlight'>tekstu</span> o swoim <span class='highlight'>doświadczeniu</span> i <span class='highlight'>projektach</span>.";
     contactTitle.innerText="Kontakt";
     footer.innerText="© 2026 Portfolio Architekta";
   }
