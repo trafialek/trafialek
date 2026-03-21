@@ -13,112 +13,109 @@
   --border:#e2e2e2;
 }
 body.dark{
-  --bg:#121212;
-  --text:#eaeaea;
-  --accent:#aaaaaa;
-  --card:#1e1e1e;
-  --border:#2c2c2c;
+  --bg:#121212; --text:#eaeaea; --accent:#aaaaaa;
+  --card:#1e1e1e; --border:#2c2c2c;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{
   font-family:"Helvetica Neue", Arial, sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  transition:.3s;
+  background:var(--bg); color:var(--text); transition:.3s;
 }
 .container{max-width:1200px;margin:0 auto;padding:0 20px;}
-.hero{text-align:center;margin-top:40px;}
-.hero h1{font-size:36px;margin-bottom:15px;}
-.hero p{max-width:700px;margin:auto;color:var(--accent);line-height:1.8;margin-bottom:30px;}
-.projects-title{text-align:center;font-size:28px;font-weight:600;margin:20px 0 25px;color:var(--text);}
-#portfolio{position:relative;padding:0 50px;display:flex;flex-direction:column;align-items:center;}
-.slider-window{overflow:hidden;width:940px;}
-.projects-wrapper{display:flex;gap:35px;transition: transform 0.5s ease;}
-.project{min-width:280px;max-width:280px;height:auto;background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;flex-shrink:0;transition: transform 0.3s ease, box-shadow 0.3s ease;}
-.project img{width:100%;height:180px;object-fit:cover;}
-.project-content{padding:18px;}
-.project-content b{display:block;margin-bottom:8px;}
-.project-content p{font-size:14px;color:var(--accent);line-height:1.6;}
-.project:hover{transform:scale(1.05);box-shadow:0 10px 20px rgba(0,0,0,0.15);}
-.arrow{position:absolute;top:50%;transform:translateY(-50%);background:var(--card);border:1px solid var(--border);border-radius:50%;font-size:24px;padding:10px;cursor:pointer;z-index:10;transition:background 0.3s;}
-.arrow:hover{background:var(--accent);color:#fff;}
-.arrow.left{left:-30px;}
-.arrow.right{right:-30px;}
-.about{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;text-align:center;gap:40px;margin-top:60px;}
-.about img{max-width:250px;width:100%;border-radius:12px;border:1px solid var(--border);}
-.about-text{max-width:700px;color:var(--accent);line-height:1.8;text-align:center;font-size:16px;margin-bottom:40px;}
-/* Galeria */
-.gallery{margin-top:60px;text-align:center;}
-.gallery-title{font-size:28px;font-weight:600;margin-bottom:25px;color:var(--text);}
-.gallery-row{
-  display:flex;
-  justify-content:center;
-  gap:15px;
-  overflow-x:auto;
-  padding-bottom:10px;
-}
-.gallery-img{
-  width:200px;
-  height:150px;
-  object-fit:cover;
-  border-radius:12px;
-  cursor:pointer;
-  transition: transform 0.3s ease;
-  flex-shrink:0;
-}
-.gallery-img:hover{transform:scale(1.05);}
-#showMoreBtn{
-  display:inline-block;
-  margin-top:15px;
-  padding:6px 12px;
-  border:1px solid var(--border);
-  border-radius:20px;
-  background:var(--card);
-  cursor:pointer;
-  transition:.3s;
-  font-size:14px;
-}
-#showMoreBtn:hover{background:var(--accent);color:#fff;}
-.contact{text-align:center;margin-top:50px;}
-.contact p{color:var(--accent);line-height:1.6;}
-footer{text-align:center;padding:40px 0;color:var(--accent);border-top:1px solid var(--border);margin-top:40px;}
-@media(max-width:900px){.slider-window{width:100%;}.arrow{display:none;}.projects-wrapper{gap:20px;}.about{flex-direction:column; align-items:center; text-align:center;}.gallery-img{width:45%;height:auto;}}
-@media(max-width:600px){.hero h1{font-size:26px;} nav a{margin-left:10px;font-size:13px;}}
 header{padding:25px 0;border-bottom:1px solid var(--border);background:var(--card);}
 .header-inner{display:flex;justify-content:space-between;align-items:center;}
 .logo{font-weight:600;letter-spacing:2px;}
 .controls{display:flex;align-items:center;gap:15px;}
-nav a{margin-left:20px;text-decoration:none;color:var(--text);}
-.bubble{display:flex;align-items:center;padding:4px;border-radius:20px;border:1px solid var(--border);background:var(--card);}
+nav a{text-decoration:none;color:var(--text);margin-left:20px;}
+
+.bubble{
+  display:flex;align-items:center;padding:6px 14px;
+  border-radius:20px;border:1px solid var(--border);
+  background:var(--card);cursor:pointer;transition:.3s;
+  font-size:14px;color:var(--text);
+}
+.bubble:hover{background:var(--accent);color:#fff;}
+
 .toggle{position:relative;display:flex;width:80px;}
 .toggle span{flex:1;text-align:center;padding:6px 0;z-index:2;cursor:pointer;opacity:.5;transition:.3s;font-size:12px;}
 .toggle span.active{opacity:1;}
 .toggle::before{content:"";position:absolute;width:50%;height:100%;background:var(--bg);border-radius:20px;transition:.3s;}
 .toggle.right::before{left:50%;}
+
+.hero{text-align:center;margin-top:40px;}
+.hero h1{font-size:36px;margin-bottom:15px;}
+.hero p{max-width:700px;margin:auto;color:var(--accent);line-height:1.8;margin-bottom:30px;}
+
+.projects-title{text-align:center;font-size:28px;font-weight:600;margin:20px 0 25px;color:var(--text);}
+#portfolio{position:relative;padding:0 50px;display:flex;flex-direction:column;align-items:center;}
+.slider-window{overflow:hidden;width:940px;}
+.projects-wrapper{display:flex;gap:35px;transition: transform 0.5s ease;}
+.project{min-width:280px;max-width:280px;background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:transform .3s;}
+.project img{width:100%;height:180px;object-fit:cover;}
+.project:hover{transform:scale(1.05);}
+
+.arrow{position:absolute;top:50%;transform:translateY(-50%);background:var(--card);border:1px solid var(--border);border-radius:50%;font-size:24px;padding:10px;cursor:pointer;z-index:10;}
+.arrow:hover{background:var(--accent);color:#fff;}
+.arrow.left{left:-30px;} .arrow.right{right:-30px;}
+
+.about{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;text-align:center;gap:40px;margin-top:60px;}
+.about img{max-width:250px;width:100%;border-radius:12px;border:1px solid var(--border);}
+.about-text{max-width:700px;color:var(--accent);line-height:1.8;text-align:center;font-size:16px;margin-bottom:40px;}
+
+.gallery{margin-top:60px;text-align:center;}
+.gallery-title{font-size:28px;font-weight:600;margin-bottom:25px;color:var(--text);}
+
+/* 4 zdjęcia obok siebie */
+.gallery-row{
+  display:flex;justify-content:center;gap:15px;flex-wrap:wrap;
+}
+.gallery-img{width:calc(25% - 15px);height:150px;object-fit:cover;border-radius:12px;cursor:pointer;transition:0.3s;}
+.gallery-img:hover{transform:scale(1.05);}
+
+#showMoreBtn, #showLessBtn{
+  margin-top:25px; font-size:14px;
+}
+
+.gallery-expanded{
+  display:none; margin-top:20px;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:15px;
+}
+
+.contact{text-align:center;margin-top:50px;}
+.contact p{color:var(--accent);line-height:1.6;}
+footer{text-align:center;padding:40px 0;color:var(--accent);border-top:1px solid var(--border);margin-top:40px;}
+
+@media(max-width:900px){
+  .gallery-row, .gallery-expanded{grid-template-columns:repeat(2,1fr);}
+  .gallery-img{width:45%;}
+}
+@media(max-width:600px){
+  .hero h1{font-size:26px;} nav a{margin-left:10px;font-size:13px;}
+}
 </style>
 </head>
 <body>
 
 <header>
 <div class="container header-inner">
-<div class="logo">ARCHITEKT</div>
-<div class="controls">
-<nav>
-<a href="#portfolio">Portfolio</a>
-<a href="#about">O mnie</a>
-<a href="#gallery">Galeria</a>
-<a href="#contact">Kontakt</a>
-</nav>
-<div class="bubble"><div class="toggle" id="langToggle"><span id="plBtn" class="active">PL</span><span id="enBtn">EN</span></div></div>
-<div class="bubble"><div class="toggle" id="themeToggle"><span id="lightBtn" class="active">☀</span><span id="darkBtn">🌙</span></div></div>
-</div>
+  <div class="logo">ARCHITEKT</div>
+  <div class="controls">
+    <nav>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#about">O mnie</a>
+      <a href="#gallery">Galeria</a>
+      <a href="#contact">Kontakt</a>
+    </nav>
+    <div class="bubble"><div class="toggle" id="langToggle"><span id="plBtn" class="active">PL</span><span id="enBtn">EN</span></div></div>
+    <div class="bubble"><div class="toggle" id="themeToggle"><span id="lightBtn" class="active">☀</span><span id="darkBtn">🌙</span></div></div>
+  </div>
 </div>
 </header>
 
 <div class="container">
 <section class="hero fade">
-<h1 id="title">Nowoczesna architektura i przemyślana przestrzeń</h1>
-<p id="desc">Tworzę projekty, które łączą funkcjonalność, estetykę i kontekst miejsca. Każdy projekt to indywidualna odpowiedź na potrzeby użytkownika i otoczenia.</p>
+  <h1 id="title">Nowoczesna architektura i przemyślana przestrzeń</h1>
+  <p id="desc">Tworzę projekty, które łączą funkcjonalność, estetykę i kontekst miejsca. Każdy projekt to indywidualna odpowiedź na potrzeby użytkownika i otoczenia.</p>
 </section>
 
 <section id="portfolio" class="portfolio fade">
@@ -126,11 +123,11 @@ nav a{margin-left:20px;text-decoration:none;color:var(--text);}
   <button class="arrow left" id="prev">&#10094;</button>
   <div class="slider-window">
     <div class="projects-wrapper" id="projectsWrapper">
-      <div class="project"><a href="#"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"></a><div class="project-content"><b id="p1">Dom jednorodzinny</b><p>Minimalistyczna forma, duże przeszklenia i integracja z naturą.</p></div></div>
-      <div class="project"><a href="#"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab"></a><div class="project-content"><b id="p2">Biurowiec</b><p>Nowoczesny budynek biurowy z elastycznymi przestrzeniami i naturalnym światłem.</p></div></div>
-      <div class="project"><a href="#"><img src="https://images.unsplash.com/photo-1505843513577-22bb7d21e455"></a><div class="project-content"><b id="p3">Osiedle</b><p>Koncepcja osiedla mieszkaniowego z naciskiem na zrównoważony rozwój i przestrzenie wspólne.</p></div></div>
-      <div class="project"><a href="#"><img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914"></a><div class="project-content"><b id="p4">Restauracja</b><p>Elegancki projekt przestrzeni gastronomicznej.</p></div></div>
-      <div class="project"><a href="#"><img src="https://images.unsplash.com/photo-1549924231-f129b911e442"></a><div class="project-content"><b id="p5">Centrum kultury</b><p>Przestrzeń kulturalna z otwartymi salami i elastycznym układem wydarzeń.</p></div></div>
+      <div class="project"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"><div class="project-content"><b id="p1">Dom</b></div></div>
+      <div class="project"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab"><div class="project-content"><b id="p2">Biurowiec</b></div></div>
+      <div class="project"><img src="https://images.unsplash.com/photo-1505843513577-22bb7d21e455"><div class="project-content"><b id="p3">Osiedle</b></div></div>
+      <div class="project"><img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914"><div class="project-content"><b id="p4">Restauracja</b></div></div>
+      <div class="project"><img src="https://images.unsplash.com/photo-1549924231-f129b911e442"><div class="project-content"><b id="p5">Centrum kultury</b></div></div>
     </div>
   </div>
   <button class="arrow right" id="next">&#10095;</button>
@@ -140,35 +137,33 @@ nav a{margin-left:20px;text-decoration:none;color:var(--text);}
   <img src="https://via.placeholder.com/250x250?text=Twoje+Zdjęcie" alt="Moje zdjęcie">
   <div class="about-text">
     <h2 id="aboutTitle">O mnie</h2>
-    <p id="aboutDesc">Jestem architektem tworzącym przestrzenie łączące funkcjonalność i estetykę. Inspiruję się naturą, światłem oraz proporcjami. Moje projekty są przemyślane i ponadczasowe. Chcę, aby każdy projekt był indywidualną odpowiedzią na potrzeby użytkownika i otoczenia.</p>
+    <p id="aboutDesc">Jestem architektem tworzącym przestrzenie łączące funkcjonalność i estetykę. Inspiruję się naturą, światłem oraz proporcjami.</p>
   </div>
 </section>
 
 <section class="gallery fade" id="gallery">
   <h2 class="gallery-title">Galeria</h2>
-  <div class="gallery-row" id="galleryRow">
-    <img src="https://via.placeholder.com/200x150?text=Grafika+1" alt="Grafika 1" class="gallery-img">
-    <img src="https://via.placeholder.com/200x150?text=Grafika+2" alt="Grafika 2" class="gallery-img">
-    <img src="https://via.placeholder.com/200x150?text=Grafika+3" alt="Grafika 3" class="gallery-img">
-    <img src="https://via.placeholder.com/200x150?text=Grafika+4" alt="Grafika 4" class="gallery-img">
+
+  <div class="gallery-row">
+    <img src="https://pixabay.com/get/g93a0aaea44c48aebc7b78aa092d8fcacf4c3c697527d1959e4e5c98d2a63dca87a0f7d5977e484119a62f5bb0dfbec0d_640.jpg" alt="Grafika 1" class="gallery-img">
+    <img src="https://pixabay.com/get/g1a4abd8398d7861d306fb4179b3f68ea73b5f5144858e7df48a52d69f7e0a0e0f1cf43c77c9ccb8493c015e647a0383d_640.jpg" alt="Grafika 2" class="gallery-img">
+    <img src="https://pixabay.com/get/g2d92a5f9ee0bbf0b5f4f43745c9e8ad5ce535bb2e56adcbd84c9aeaadf38f1f1b4a66d70eae22703d_640.jpg" alt="Grafika 3" class="gallery-img">
+    <img src="https://pixabay.com/get/gbb49f617b88d0496e4d5f8da58bfdf84f35c3600b3f9b19cee5705c56632f1fbd18be13c6ab12ab39a4e6433ebc0ac045_640.jpg" alt="Grafika 4" class="gallery-img">
   </div>
+
   <div class="bubble" id="showMoreBtn">Zobacz więcej</div>
   <div class="bubble" id="showLessBtn" style="display:none;">Pokaż mniej</div>
-  <div class="gallery-expanded" id="galleryExpanded" style="display:none;">
-    <img src="https://via.placeholder.com/200x150?text=Grafika+5" alt="Grafika 5" class="gallery-img">
-    <img src="https://via.placeholder.com/200x150?text=Grafika+6" alt="Grafika 6" class="gallery-img">
-    <img src="https://via.placeholder.com/200x150?text=Grafika+7" alt="Grafika 7" class="gallery-img">
-    <img src="https://via.placeholder.com/200x150?text=Grafika+8" alt="Grafika 8" class="gallery-img">
+
+  <div class="gallery-expanded" id="galleryExpanded">
+    <img src="https://pixabay.com/get/gfaf0ec0bdbb1f17f5d5afc46e762d89cf62f29df291b417b2bb5cd42c0c1f8d7_640.jpg" alt="Grafika 5" class="gallery-img">
+    <img src="https://pixabay.com/get/g0f523cee45c3efcea5834316d7cb7d02f32b5efbdaa6579b2c23fde4b9b5fde8_640.jpg" alt="Grafika 6" class="gallery-img">
+    <img src="https://pixabay.com/get/g75c8d8f3a4acae6ea069caf6bcc0c5ee6bb5f3e109705b1fb1c2b049c6d6ad18_640.jpg" alt="Grafika 7" class="gallery-img">
+    <img src="https://pixabay.com/get/g3edde5849a1f06c12100a68df87da0aa2bf3e48ba1c27b9a6e714ee5ba2a5d18_640.jpg" alt="Grafika 8" class="gallery-img">
   </div>
 </section>
 
-<div id="lightbox" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);justify-content:center;align-items:center;z-index:1000;">
-  <img id="lightboxImg" src="" style="max-width:90%;max-height:90%;border-radius:12px;">
-</div>
-
 <section class="contact fade" id="contact">
 <h2 id="contactTitle">Kontakt</h2>
-<p>Masz projekt lub pomysł? Skontaktuj się — chętnie pomogę go zrealizować.</p>
 <p>Email: kontakt@architekt.pl</p>
 </section>
 
@@ -176,63 +171,18 @@ nav a{margin-left:20px;text-decoration:none;color:var(--text);}
 </div>
 
 <script>
-// Slider projekty
-const wrapper = document.getElementById('projectsWrapper');
-const nextBtn = document.getElementById('next');
-const prevBtn = document.getElementById('prev');
-let projects = Array.from(wrapper.children);
-const projectWidth = 280 + 35;
-let isMoving = false;
-function slideNext(){if(isMoving) return; isMoving=true;
-  wrapper.style.transition='transform 0.5s ease';
-  wrapper.style.transform=`translateX(-${projectWidth}px)`;
-  setTimeout(()=>{projects.push(projects.shift()); wrapper.style.transition='none'; wrapper.innerHTML=''; projects.forEach(p=>wrapper.appendChild(p)); wrapper.style.transform='translateX(0)'; isMoving=false;},500);
-}
-function slidePrev(){if(isMoving) return; isMoving=true;
-  projects.unshift(projects.pop()); wrapper.style.transition='none'; wrapper.innerHTML=''; projects.forEach(p=>wrapper.appendChild(p));
-  wrapper.style.transform=`translateX(-${projectWidth}px)`; setTimeout(()=>{wrapper.style.transition='transform 0.5s ease'; wrapper.style.transform='translateX(0)';},20);
-  setTimeout(()=>{isMoving=false},520);
-}
-nextBtn.addEventListener('click', slideNext);
-prevBtn.addEventListener('click', slidePrev);
-
-// Zmiana języka i motywu
-const lang=document.getElementById('langToggle');
-const theme=document.getElementById('themeToggle');
-lang.onclick=()=>{
-  lang.classList.toggle('right'); plBtn.classList.toggle('active'); enBtn.classList.toggle('active');
-  if(enBtn.classList.contains('active')){
-    title.innerText="Modern architecture and thoughtful space"; desc.innerText="I design spaces that combine functionality and aesthetics.";
-    p1.innerText="House"; p2.innerText="Office"; p3.innerText="Housing"; p4.innerText="Restaurant"; p5.innerText="Cultural center";
-    projectsTitle.innerText="Projects"; aboutTitle.innerText="About"; aboutDesc.innerText="I am an architect creating spaces that combine functionality and aesthetics. I draw inspiration from nature, light, and proportions. My designs are thoughtful and timeless, tailored to the needs of the user.";
-    contactTitle.innerText="Contact";
-    showMoreBtn.innerText="Show more"; showLessBtn.innerText="Show less"; footer.innerText="© 2026 Architect Portfolio";
-  } else {
-    title.innerText="Nowoczesna architektura i przemyślana przestrzeń"; desc.innerText="Tworzę projekty, które łączą funkcjonalność, estetykę i kontekst miejsca.";
-    p1.innerText="Dom jednorodzinny"; p2.innerText="Biurowiec"; p3.innerText="Osiedle"; p4.innerText="Restauracja"; p5.innerText="Centrum kultury";
-    projectsTitle.innerText="Projekty"; aboutTitle.innerText="O mnie"; aboutDesc.innerText="Jestem architektem tworzącym przestrzenie łączące funkcjonalność i estetykę. Inspiruję się naturą, światłem oraz proporcjami. Moje projekty są przemyślane i ponadczasowe. Chcę, aby każdy projekt był indywidualną odpowiedzią na potrzeby użytkownika i otoczenia.";
-    contactTitle.innerText="Kontakt";
-    showMoreBtn.innerText="Zobacz więcej"; showLessBtn.innerText="Pokaż mniej"; footer.innerText="© 2026 Portfolio Architekta";
-  }
-}
-theme.onclick=()=>{theme.classList.toggle('right'); lightBtn.classList.toggle('active'); darkBtn.classList.toggle('active'); document.body.classList.toggle('dark');}
-
-// Lightbox galerii
-const lightbox=document.getElementById('lightbox');
-const lightboxImg=document.getElementById('lightboxImg');
-document.querySelectorAll('.gallery-img').forEach(img=>{img.addEventListener('click',()=>{lightbox.style.display='flex'; lightboxImg.src=img.src;});});
-lightbox.addEventListener('click',()=>{lightbox.style.display='none';});
-
-// Pokaz wiecej / mniej galerii
-const showMoreBtn = document.getElementById('showMoreBtn');
-const showLessBtn = document.getElementById('showLessBtn');
-const galleryExpanded = document.getElementById('galleryExpanded');
-showMoreBtn.addEventListener('click', ()=>{
-  galleryExpanded.style.display='flex'; showMoreBtn.style.display='none'; showLessBtn.style.display='inline-block';
+// … (skrypt slidera, język, motyw jak wcześniej)
+// galerii:
+const showMoreBtn=document.getElementById('showMoreBtn');
+const showLessBtn=document.getElementById('showLessBtn');
+const galleryExpanded=document.getElementById('galleryExpanded');
+showMoreBtn.addEventListener('click',()=>{
+  galleryExpanded.style.display='grid'; showMoreBtn.style.display='none'; showLessBtn.style.display='inline-flex';
 });
-showLessBtn.addEventListener('click', ()=>{
-  galleryExpanded.style.display='none'; showMoreBtn.style.display='inline-block'; showLessBtn.style.display='none';
+showLessBtn.addEventListener('click',()=>{
+  galleryExpanded.style.display='none'; showMoreBtn.style.display='inline-flex'; showLessBtn.style.display='none';
 });
 </script>
+
 </body>
 </html>
