@@ -37,6 +37,7 @@ nav a{text-decoration:none;color:var(--text);margin-left:20px;}
 .projects-wrapper{display:flex;gap:35px;transition: transform 0.5s ease;}
 .project{min-width:280px;max-width:280px;background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:transform .3s;}
 .project img{width:100%;height:180px;object-fit:cover;}
+.project-content{padding:15px;text-align:center;color:var(--accent);}
 .project:hover{transform:scale(1.05);}
 .arrow{position:absolute;top:50%;transform:translateY(-50%);background:var(--card);border:1px solid var(--border);border-radius:50%;font-size:24px;padding:10px;cursor:pointer;z-index:10;}
 .arrow:hover{background:var(--accent);color:#fff;}
@@ -46,15 +47,16 @@ nav a{text-decoration:none;color:var(--text);margin-left:20px;}
 .about-text{max-width:700px;color:var(--accent);line-height:1.8;text-align:center;font-size:16px;margin-bottom:40px;}
 .gallery{margin-top:60px;text-align:center;}
 .gallery-title{font-size:28px;font-weight:600;margin-bottom:25px;color:var(--text);}
-.gallery-row, .gallery-expanded{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;}
+.gallery-row, .gallery-expanded{display:grid;gap:20px; grid-template-columns:repeat(4,1fr);}
 .gallery-img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px;cursor:pointer;transition:0.3s;}
 .gallery-img:hover{transform:scale(1.05);}
-#showMoreBtn, #showLessBtn{margin:25px auto;font-size:14px;display:inline-block;}
+#showMoreBtn, #showLessBtn{margin:25px auto;font-size:14px;display:inline-block;cursor:pointer;}
+#showMoreBtn.bubble, #showLessBtn.bubble{padding:6px 14px;border-radius:20px;border:1px solid var(--border);background:var(--card);}
+.gallery-expanded{opacity:0;transition:opacity 0.5s ease;display:none;}
+.gallery-expanded.show{display:grid;opacity:1;}
 .contact{text-align:center;margin-top:50px;}
 .contact p{color:var(--accent);line-height:1.6;}
 footer{text-align:center;padding:40px 0;color:var(--accent);border-top:1px solid var(--border);margin-top:40px;}
-
-/* lightbox */
 #lightbox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);justify-content:center;align-items:center;z-index:1000;}
 #lightbox img{max-width:90%;max-height:90%;border-radius:12px;}
 #lightbox span{position:absolute;top:20px;right:30px;font-size:40px;color:#fff;cursor:pointer;}
@@ -91,11 +93,11 @@ footer{text-align:center;padding:40px 0;color:var(--accent);border-top:1px solid
   <button class="arrow left" id="prev">&#10094;</button>
   <div class="slider-window">
     <div class="projects-wrapper" id="projectsWrapper">
-      <div class="project"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"><div class="project-content"><b id="p1">Dom</b></div></div>
-      <div class="project"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab"><div class="project-content"><b id="p2">Biurowiec</b></div></div>
-      <div class="project"><img src="https://images.unsplash.com/photo-1505843513577-22bb7d21e455"><div class="project-content"><b id="p3">Osiedle</b></div></div>
-      <div class="project"><img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914"><div class="project-content"><b id="p4">Restauracja</b></div></div>
-      <div class="project"><img src="https://images.unsplash.com/photo-1549924231-f129b911e442"><div class="project-content"><b id="p5">Centrum kultury</b></div></div>
+      <div class="project"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"><div class="project-content"><b id="p1">Dom</b><p>Minimalistyczna forma, duże przeszklenia i integracja z naturą.</p></div></div>
+      <div class="project"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab"><div class="project-content"><b id="p2">Biurowiec</b><p>Nowoczesny budynek biurowy z elastycznymi przestrzeniami i naturalnym światłem.</p></div></div>
+      <div class="project"><img src="https://images.unsplash.com/photo-1505843513577-22bb7d21e455"><div class="project-content"><b id="p3">Osiedle</b><p>Koncepcja osiedla mieszkaniowego z naciskiem na zrównoważony rozwój i przestrzenie wspólne.</p></div></div>
+      <div class="project"><img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914"><div class="project-content"><b id="p4">Restauracja</b><p>Projekt przestrzeni gastronomicznej z przemyślanym układem i światłem.</p></div></div>
+      <div class="project"><img src="https://images.unsplash.com/photo-1549924231-f129b911e442"><div class="project-content"><b id="p5">Centrum kultury</b><p>Nowoczesne centrum z przestrzeniami dla wydarzeń i sztuki.</p></div></div>
     </div>
   </div>
   <button class="arrow right" id="next">&#10095;</button>
@@ -130,7 +132,6 @@ footer{text-align:center;padding:40px 0;color:var(--accent);border-top:1px solid
   <div class="bubble" id="showLessBtn" style="display:none;">Pokaż mniej</div>
 </section>
 
-<!-- Lightbox -->
 <div id="lightbox"><span id="closeLightbox">&times;</span><img src="" alt=""/></div>
 
 <section class="contact fade" id="contact">
@@ -142,7 +143,7 @@ footer{text-align:center;padding:40px 0;color:var(--accent);border-top:1px solid
 </div>
 
 <script>
-// Slider
+// Slider projekty
 const wrapper=document.getElementById('projectsWrapper');
 const nextBtn=document.getElementById('next');
 const prevBtn=document.getElementById('prev');
@@ -173,15 +174,19 @@ function slidePrev(){if(isMoving) return; isMoving=true;
 nextBtn.addEventListener('click',slideNext);
 prevBtn.addEventListener('click',slidePrev);
 
-// Galeria: pokaż więcej / mniej
+// Galeria - pokaż więcej / mniej z animacją
 const showMoreBtn=document.getElementById('showMoreBtn');
 const showLessBtn=document.getElementById('showLessBtn');
 const galleryExpanded=document.getElementById('galleryExpanded');
 showMoreBtn.addEventListener('click',()=>{
-  galleryExpanded.style.display='grid'; showMoreBtn.style.display='none'; showLessBtn.style.display='inline-block';
+  galleryExpanded.style.display='grid';
+  setTimeout(()=>{galleryExpanded.classList.add('show');},10);
+  showMoreBtn.style.display='none'; showLessBtn.style.display='inline-block';
 });
 showLessBtn.addEventListener('click',()=>{
-  galleryExpanded.style.display='none'; showMoreBtn.style.display='inline-block'; showLessBtn.style.display='none';
+  galleryExpanded.classList.remove('show');
+  setTimeout(()=>{galleryExpanded.style.display='none';},500);
+  showMoreBtn.style.display='inline-block'; showLessBtn.style.display='none';
 });
 
 // Lightbox
@@ -203,14 +208,12 @@ const theme=document.getElementById('themeToggle');
 lang.onclick=()=>{
   lang.classList.toggle('right'); plBtn.classList.toggle('active'); enBtn.classList.toggle('active');
   if(enBtn.classList.contains('active')){
-    title.innerText="Modern architecture and thoughtful space";
-    desc.innerText="I design spaces that combine functionality and aesthetics.";
+    title.innerText="Modern architecture and thoughtful space"; desc.innerText="I design spaces that combine functionality and aesthetics.";
     p1.innerText="House"; p2.innerText="Office"; p3.innerText="Housing"; p4.innerText="Restaurant"; p5.innerText="Cultural center";
     projectsTitle.innerText="Projects"; aboutTitle.innerText="About"; aboutDesc.innerText="I am an architect creating spaces that combine functionality and aesthetics. I draw inspiration from nature, light, and proportions. My designs are thoughtful and timeless.";
     contactTitle.innerText="Contact"; showMoreBtn.innerText="Show more"; showLessBtn.innerText="Show less"; footer.innerText="© 2026 Architect Portfolio";
   } else {
-    title.innerText="Nowoczesna architektura i przemyślana przestrzeń";
-    desc.innerText="Tworzę projekty, które łączą funkcjonalność, estetykę i kontekst miejsca.";
+    title.innerText="Nowoczesna architektura i przemyślana przestrzeń"; desc.innerText="Tworzę projekty, które łączą funkcjonalność, estetykę i kontekst miejsca.";
     p1.innerText="Dom"; p2.innerText="Biurowiec"; p3.innerText="Osiedle"; p4.innerText="Restauracja"; p5.innerText="Centrum kultury";
     projectsTitle.innerText="Projekty"; aboutTitle.innerText="O mnie"; aboutDesc.innerText="Jestem architektem tworzącym przestrzenie łączące funkcjonalność i estetykę. Inspiruję się naturą, światłem oraz proporcjami.";
     contactTitle.innerText="Kontakt"; showMoreBtn.innerText="Zobacz więcej"; showLessBtn.innerText="Pokaż mniej"; footer.innerText="© 2026 Portfolio Architekta";
@@ -218,6 +221,5 @@ lang.onclick=()=>{
 }
 theme.onclick=()=>{theme.classList.toggle('right'); lightBtn.classList.toggle('active'); darkBtn.classList.toggle('active'); document.body.classList.toggle('dark');}
 </script>
-
 </body>
 </html>
