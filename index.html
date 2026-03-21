@@ -30,6 +30,15 @@ body{
   transition:.3s;
 }
 
+.container{
+  max-width:1200px;
+  margin:0 auto;
+}
+
+section{
+  margin:60px 0;
+}
+
 .fade{
   animation:fade .4s ease;
 }
@@ -40,21 +49,26 @@ body{
 }
 
 header{
-  padding:20px 6%;
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:space-between;
-  align-items:center;
+  padding:25px 0;
   border-bottom:1px solid var(--border);
   background:var(--card);
 }
 
+.header-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
 .logo{font-weight:600;letter-spacing:2px}
 
-.controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.controls{display:flex;align-items:center;gap:15px}
 
-nav{display:flex;flex-wrap:wrap}
-nav a{margin-left:15px;text-decoration:none;color:var(--text);font-size:14px}
+nav a{
+  margin-left:20px;
+  text-decoration:none;
+  color:var(--text);
+}
 
 .bubble{
   display:flex;
@@ -74,7 +88,7 @@ nav a{margin-left:15px;text-decoration:none;color:var(--text);font-size:14px}
 .toggle span{
   flex:1;
   text-align:center;
-  padding:5px 0;
+  padding:6px 0;
   z-index:2;
   cursor:pointer;
   opacity:.5;
@@ -96,15 +110,26 @@ nav a{margin-left:15px;text-decoration:none;color:var(--text);font-size:14px}
 
 .toggle.right::before{left:50%}
 
-.hero{padding:80px 8%}
-.hero h1{font-size:32px;margin-bottom:15px}
-.hero p{color:var(--accent);max-width:600px}
+.hero{
+  text-align:center;
+}
+
+.hero h1{
+  font-size:36px;
+  margin-bottom:20px;
+}
+
+.hero p{
+  max-width:700px;
+  margin:0 auto;
+  color:var(--accent);
+  line-height:1.8;
+}
 
 .portfolio{
-  padding:50px 8%;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:35px;
 }
 
 .project{
@@ -114,63 +139,101 @@ nav a{margin-left:15px;text-decoration:none;color:var(--text);font-size:14px}
   overflow:hidden;
 }
 
-.project img{width:100%;height:180px;object-fit:cover}
-.project-content{padding:15px}
-.project-content p{font-size:13px;color:var(--accent);margin-top:5px}
+.project img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
 
-.about,.contact{padding:60px 8%;border-top:1px solid var(--border)}
-.about p{max-width:700px;color:var(--accent)}
+.project-content{
+  padding:18px;
+}
 
-footer{text-align:center;padding:30px;color:var(--accent)}
+.project-content b{
+  display:block;
+  margin-bottom:8px;
+}
 
-/* MOBILE */
+.project-content p{
+  font-size:14px;
+  color:var(--accent);
+  line-height:1.6;
+}
+
+.about, .contact{
+  text-align:center;
+}
+
+.about p{
+  max-width:700px;
+  margin:20px auto 0;
+  color:var(--accent);
+  line-height:1.8;
+}
+
+.contact p{
+  margin-top:10px;
+  color:var(--accent);
+}
+
+footer{
+  text-align:center;
+  padding:40px 0;
+  color:var(--accent);
+  border-top:1px solid var(--border);
+  margin-top:60px;
+}
+
 @media(max-width:600px){
-  .hero h1{font-size:24px}
+  .hero h1{font-size:26px}
   nav a{margin-left:10px;font-size:13px}
-  .toggle{width:70px}
 }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">ARCHITEKT</div>
+  <div class="container header-inner">
+    <div class="logo">ARCHITEKT</div>
 
-  <div class="controls">
-    <nav>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#about">O mnie</a>
-      <a href="#contact">Kontakt</a>
-    </nav>
+    <div class="controls">
+      <nav>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#about">O mnie</a>
+        <a href="#contact">Kontakt</a>
+      </nav>
 
-    <div class="bubble">
-      <div class="toggle" id="langToggle">
-        <span id="plBtn" class="active">PL</span>
-        <span id="enBtn">EN</span>
+      <div class="bubble">
+        <div class="toggle" id="langToggle">
+          <span id="plBtn" class="active">PL</span>
+          <span id="enBtn">EN</span>
+        </div>
+      </div>
+
+      <div class="bubble">
+        <div class="toggle" id="themeToggle">
+          <span id="lightBtn" class="active">☀</span>
+          <span id="darkBtn">🌙</span>
+        </div>
       </div>
     </div>
-
-    <div class="bubble">
-      <div class="toggle" id="themeToggle">
-        <span id="lightBtn" class="active">☀</span>
-        <span id="darkBtn">🌙</span>
-      </div>
-    </div>
-
   </div>
 </header>
 
-<section class="hero fade" id="hero">
+<div class="container">
+
+<section class="hero fade">
   <h1 id="title">Nowoczesna architektura i przemyślana przestrzeń</h1>
-  <p id="desc">Tworzę projekty, które łączą funkcjonalność, estetykę i kontekst miejsca. Każdy projekt to indywidualna odpowiedź na potrzeby użytkownika i otoczenia.</p>
+  <p id="desc">Tworzę projekty, które łączą funkcjonalność, estetykę i kontekst miejsca. Każdy projekt jest przemyślany pod kątem użytkownika, światła oraz relacji z otoczeniem.</p>
 </section>
 
-<section class="portfolio fade" id="portfolio">
+<section id="portfolio" class="portfolio fade">
+
   <div class="project">
     <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
     <div class="project-content">
       <b id="p1">Dom jednorodzinny</b>
-      <p>Minimalistyczna forma, duże przeszklenia i integracja z naturą.</p>
+      <p>Projekt domu jednorodzinnego oparty na prostych bryłach i dużych przeszkleniach, które otwierają wnętrze na krajobraz.</p>
     </div>
   </div>
 
@@ -178,7 +241,7 @@ footer{text-align:center;padding:30px;color:var(--accent)}
     <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab">
     <div class="project-content">
       <b id="p2">Biurowiec</b>
-      <p>Nowoczesna architektura biurowa oparta na modułowej strukturze.</p>
+      <p>Nowoczesny budynek biurowy zaprojektowany z myślą o elastycznych przestrzeniach pracy i naturalnym świetle.</p>
     </div>
   </div>
 
@@ -186,23 +249,26 @@ footer{text-align:center;padding:30px;color:var(--accent)}
     <img src="https://images.unsplash.com/photo-1505843513577-22bb7d21e455">
     <div class="project-content">
       <b id="p3">Osiedle</b>
-      <p>Zrównoważone planowanie przestrzeni miejskiej i zieleni.</p>
+      <p>Koncepcja osiedla mieszkaniowego z naciskiem na zrównoważony rozwój i przestrzenie wspólne.</p>
     </div>
   </div>
+
 </section>
 
-<section class="about fade" id="about">
+<section id="about" class="about fade">
   <h2 id="aboutTitle">O mnie</h2>
-  <p id="aboutDesc">Jestem architektem skupionym na tworzeniu przestrzeni, które są zarówno funkcjonalne, jak i ponadczasowe. Inspiruję się naturą, światłem i proporcjami.</p>
+  <p id="aboutDesc">Jestem architektem skupionym na projektowaniu przestrzeni, które są funkcjonalne, estetyczne i ponadczasowe. W swojej pracy łączę analizę kontekstu z kreatywnym podejściem do formy i materiału.</p>
 </section>
 
-<section class="contact fade" id="contact">
+<section id="contact" class="contact fade">
   <h2 id="contactTitle">Kontakt</h2>
-  <p>Masz projekt lub pomysł? Skontaktuj się — chętnie pomogę go zrealizować.</p>
+  <p>Masz pomysł lub projekt? Skontaktuj się, aby wspólnie stworzyć coś wyjątkowego.</p>
   <p>Email: kontakt@architekt.pl</p>
 </section>
 
 <footer id="footer">© 2026 Portfolio Architekta</footer>
+
+</div>
 
 <script>
 const lang = document.getElementById('langToggle');
@@ -223,10 +289,10 @@ lang.addEventListener('click',()=>{
 
   if(enBtn.classList.contains('active')){
     title.innerText = "Modern architecture and thoughtful space";
-    desc.innerText = "I design spaces that combine functionality and aesthetics.";
-    p1.innerText = "House";
-    p2.innerText = "Office";
-    p3.innerText = "Housing";
+    desc.innerText = "I design spaces that combine functionality, aesthetics and context.";
+    p1.innerText = "Single-family house";
+    p2.innerText = "Office building";
+    p3.innerText = "Housing estate";
     aboutTitle.innerText = "About";
     aboutDesc.innerText = "Architect focused on timeless and functional design.";
     contactTitle.innerText = "Contact";
@@ -238,7 +304,7 @@ lang.addEventListener('click',()=>{
     p2.innerText = "Biurowiec";
     p3.innerText = "Osiedle";
     aboutTitle.innerText = "O mnie";
-    aboutDesc.innerText = "Jestem architektem skupionym na tworzeniu przestrzeni.";
+    aboutDesc.innerText = "Jestem architektem skupionym na projektowaniu przestrzeni.";
     contactTitle.innerText = "Kontakt";
     footer.innerText = "© 2026 Portfolio Architekta";
   }
