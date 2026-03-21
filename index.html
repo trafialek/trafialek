@@ -48,12 +48,12 @@ nav a{text-decoration:none;color:var(--text);margin-left:20px;}
 .gallery{margin-top:60px;text-align:center;}
 .gallery-title{font-size:28px;font-weight:600;margin-bottom:25px;color:var(--text);}
 .gallery-row, .gallery-expanded{display:grid;gap:20px; grid-template-columns:repeat(4,1fr);}
-.gallery-img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px;cursor:pointer;transition:0.3s;}
-.gallery-img:hover{transform:scale(1.05);}
-#showMoreBtn, #showLessBtn{margin:25px auto;font-size:14px;display:inline-block;cursor:pointer;}
-#showMoreBtn.bubble, #showLessBtn.bubble{padding:6px 14px;border-radius:20px;border:1px solid var(--border);background:var(--card);}
 .gallery-expanded{opacity:0;transition:opacity 0.5s ease;display:none;}
 .gallery-expanded.show{display:grid;opacity:1;}
+.gallery-img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px;cursor:pointer;transition:0.3s;}
+.gallery-img:hover{transform:scale(1.05);}
+#showMoreBtn, #showLessBtn{margin:20px auto 0 auto;font-size:14px;display:inline-block;cursor:pointer;}
+#showMoreBtn.bubble, #showLessBtn.bubble{padding:6px 14px;border-radius:20px;border:1px solid var(--border);background:var(--card);}
 .contact{text-align:center;margin-top:50px;}
 .contact p{color:var(--accent);line-height:1.6;}
 footer{text-align:center;padding:40px 0;color:var(--accent);border-top:1px solid var(--border);margin-top:40px;}
@@ -128,8 +128,8 @@ footer{text-align:center;padding:40px 0;color:var(--accent);border-top:1px solid
     <img src="https://images.pexels.com/photos/164634/pexels-photo-164634.jpeg" alt="Architektura 8" class="gallery-img">
   </div>
 
-  <div class="bubble" id="showMoreBtn">Zobacz więcej</div>
-  <div class="bubble" id="showLessBtn" style="display:none;">Pokaż mniej</div>
+  <div id="showMoreBtn" class="bubble">Zobacz więcej</div>
+  <div id="showLessBtn" class="bubble" style="display:none;">Pokaż mniej</div>
 </section>
 
 <div id="lightbox"><span id="closeLightbox">&times;</span><img src="" alt=""/></div>
@@ -181,6 +181,7 @@ const galleryExpanded=document.getElementById('galleryExpanded');
 showMoreBtn.addEventListener('click',()=>{
   galleryExpanded.style.display='grid';
   setTimeout(()=>{galleryExpanded.classList.add('show');},10);
+  showMoreBtn.style.marginTop='20px';
   showMoreBtn.style.display='none'; showLessBtn.style.display='inline-block';
 });
 showLessBtn.addEventListener('click',()=>{
@@ -221,5 +222,6 @@ lang.onclick=()=>{
 }
 theme.onclick=()=>{theme.classList.toggle('right'); lightBtn.classList.toggle('active'); darkBtn.classList.toggle('active'); document.body.classList.toggle('dark');}
 </script>
+
 </body>
 </html>
