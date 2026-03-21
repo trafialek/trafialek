@@ -115,18 +115,59 @@
     .hero h1{font-size:36px;margin-bottom:25px}
     .hero p{max-width:700px;margin:auto;color:var(--accent);line-height:1.8}
 
-    .portfolio{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:35px}
-    .project{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+    /* Portfolio Slider */
+    #portfolio {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .projects-wrapper {
+      display: flex;
+      gap: 35px;
+      transition: transform 0.4s ease;
+    }
+
+    .project{
+      min-width:260px;
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:12px;
+      overflow:hidden;
+      flex-shrink:0;
+    }
     .project img{width:100%;height:180px;object-fit:cover}
     .project-content{padding:18px}
     .project-content b{display:block;margin-bottom:8px}
     .project-content p{font-size:14px;color:var(--accent);line-height:1.6}
+
+    /* Strzałki */
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      font-size: 24px;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 10;
+      transition: background 0.3s;
+    }
+    .arrow:hover { background: var(--accent); color: #fff; }
+    .arrow.left { left: -20px; }
+    .arrow.right { right: -20px; }
 
     .about,.contact{text-align:center}
     .about p{max-width:700px;margin:20px auto 0;color:var(--accent);line-height:1.8}
     .contact p{margin-top:10px;color:var(--accent)}
 
     footer{text-align:center;padding:40px 0;color:var(--accent);border-top:1px solid var(--border);margin-top:140px}
+
+    @media(max-width:900px){
+      .projects-wrapper { flex-wrap: wrap; justify-content: center; }
+      .arrow { display: none; }
+    }
 
     @media(max-width:600px){
       .hero h1{font-size:26px}
@@ -154,20 +195,34 @@
 <h1 id="title">Nowoczesna architektura i przemyślana przestrzeń</h1>
 <p id="desc">Tworzę projekty, które łączą funkcjonalność, estetykę i kontekst miejsca. Każdy projekt to indywidualna odpowiedź na potrzeby użytkownika i otoczenia.</p>
 </section>
+
 <section id="portfolio" class="portfolio fade">
-<div class="project">
-<a href="project1.html"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"></a>
-<div class="project-content"><b id="p1">Dom jednorodzinny</b><p>Minimalistyczna forma, duże przeszklenia i integracja z naturą.</p></div>
-</div>
-<div class="project">
-<a href="project2.html"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab"></a>
-<div class="project-content"><b id="p2">Biurowiec</b><p>Nowoczesny budynek biurowy z elastycznymi przestrzeniami i naturalnym światłem.</p></div>
-</div>
-<div class="project">
-<a href="project3.html"><img src="https://images.unsplash.com/photo-1505843513577-22bb7d21e455"></a>
-<div class="project-content"><b id="p3">Osiedle</b><p>Koncepcja osiedla mieszkaniowego z naciskiem na zrównoważony rozwój i przestrzenie wspólne.</p></div>
-</div>
+  <button class="arrow left" id="prev">&#10094;</button>
+  <div class="projects-wrapper">
+    <div class="project">
+      <a href="project1.html"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"></a>
+      <div class="project-content"><b id="p1">Dom jednorodzinny</b><p>Minimalistyczna forma, duże przeszklenia i integracja z naturą.</p></div>
+    </div>
+    <div class="project">
+      <a href="project2.html"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab"></a>
+      <div class="project-content"><b id="p2">Biurowiec</b><p>Nowoczesny budynek biurowy z elastycznymi przestrzeniami i naturalnym światłem.</p></div>
+    </div>
+    <div class="project">
+      <a href="project3.html"><img src="https://images.unsplash.com/photo-1505843513577-22bb7d21e455"></a>
+      <div class="project-content"><b id="p3">Osiedle</b><p>Koncepcja osiedla mieszkaniowego z naciskiem na zrównoważony rozwój i przestrzenie wspólne.</p></div>
+    </div>
+    <div class="project">
+      <a href="project4.html"><img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914"></a>
+      <div class="project-content"><b id="p4">Restauracja</b><p>Elegancki projekt przestrzeni gastronomicznej z dużymi przeszkleniami i naturalnymi materiałami.</p></div>
+    </div>
+    <div class="project">
+      <a href="project5.html"><img src="https://images.unsplash.com/photo-1549924231-f129b911e442"></a>
+      <div class="project-content"><b id="p5">Centrum kultury</b><p>Przestrzeń kulturalna z otwartymi salami i elastycznym układem wydarzeń.</p></div>
+    </div>
+  </div>
+  <button class="arrow right" id="next">&#10095;</button>
 </section>
+
 <section class="about fade" id="about">
 <h2 id="aboutTitle">O mnie</h2>
 <p id="aboutDesc">Jestem architektem skupionym na tworzeniu przestrzeni, które są zarówno funkcjonalne, jak i ponadczasowe. Inspiruję się naturą, światłem i proporcjami.</p>
@@ -179,7 +234,9 @@
 </section>
 <footer id="footer">© 2026 Portfolio Architekta</footer>
 </div>
+
 <script>
+/* Język */
 const lang=document.getElementById('langToggle');
 const theme=document.getElementById('themeToggle');
 lang.onclick=()=>{
@@ -192,6 +249,8 @@ desc.innerText="I design spaces that combine functionality and aesthetics.";
 p1.innerText="House";
 p2.innerText="Office";
 p3.innerText="Housing";
+p4.innerText="Restaurant";
+p5.innerText="Cultural center";
 aboutTitle.innerText="About";
 aboutDesc.innerText="Architect focused on timeless and functional design.";
 contactTitle.innerText="Contact";
@@ -202,17 +261,40 @@ desc.innerText="Tworzę projekty, które łączą funkcjonalność, estetykę i 
 p1.innerText="Dom jednorodzinny";
 p2.innerText="Biurowiec";
 p3.innerText="Osiedle";
+p4.innerText="Restauracja";
+p5.innerText="Centrum kultury";
 aboutTitle.innerText="O mnie";
 aboutDesc.innerText="Jestem architektem skupionym na projektowaniu przestrzeni.";
 contactTitle.innerText="Kontakt";
 footer.innerText="© 2026 Portfolio Architekta";
 }}
+
+/* Motyw */
 theme.onclick=()=>{
 theme.classList.toggle('right');
 lightBtn.classList.toggle('active');
 darkBtn.classList.toggle('active');
 document.body.classList.toggle('dark');
 }
+
+/* Portfolio slider */
+const projectsWrapper = document.querySelector('.projects-wrapper');
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
+let offset = 0;
+const projectWidth = 260 + 35; // szerokość projektu + gap
+
+prevBtn.onclick = () => {
+  offset += projectWidth;
+  if(offset > 0) offset = -(projectsWrapper.children.length - 3) * projectWidth;
+  projectsWrapper.style.transform = `translateX(${offset}px)`;
+};
+
+nextBtn.onclick = () => {
+  offset -= projectWidth;
+  if(offset < -(projectsWrapper.children.length - 3) * projectWidth) offset = 0;
+  projectsWrapper.style.transform = `translateX(${offset}px)`;
+};
 </script>
 </body>
 </html>
