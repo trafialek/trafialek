@@ -1,123 +1,94 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio Architekta</title>
-  <style>
-    :root{
-      --bg:#f5f5f5;
-      --text:#222;
-      --accent:#6b6b6b;
-      --card:#ffffff;
-      --border:#e2e2e2;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Portfolio Architekta</title>
+<style>
+:root{
+  --bg:#f5f5f5;
+  --text:#222;
+  --accent:#6b6b6b;
+  --card:#ffffff;
+  --border:#e2e2e2;
+}
 
-    body.dark{
-      --bg:#121212;
-      --text:#eaeaea;
-      --accent:#aaaaaa;
-      --card:#1e1e1e;
-      --border:#2c2c2c;
-    }
+body.dark{
+  --bg:#121212;
+  --text:#eaeaea;
+  --accent:#aaaaaa;
+  --card:#1e1e1e;
+  --border:#2c2c2c;
+}
 
-    *{box-sizing:border-box;margin:0;padding:0}
+*{box-sizing:border-box;margin:0;padding:0}
 
-    body{
-      font-family: "Helvetica Neue", Arial, sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      line-height:1.6;
-      transition:0.3s;
-    }
+body{
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  transition:.3s;
+}
 
-    header{
-      padding:30px 8%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      border-bottom:1px solid var(--border);
-      background:var(--card);
-    }
+header{
+  padding:30px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid var(--border);
+  background:var(--card);
+}
 
-    .logo{
-      font-weight:600;
-      letter-spacing:2px;
-      font-size:18px;
-    }
+.logo{font-weight:600;letter-spacing:2px}
 
-    .controls{
-      display:flex;
-      align-items:center;
-      gap:15px;
-    }
+.controls{display:flex;align-items:center;gap:15px}
 
-    nav a{
-      text-decoration:none;
-      color:var(--text);
-      margin-left:20px;
-      font-size:14px;
-    }
+nav a{margin-left:20px;text-decoration:none;color:var(--text)}
 
-    /* SWITCHES */
-    .switch{
-      display:flex;
-      align-items:center;
-      gap:6px;
-      font-size:12px;
-    }
+/* BUBBLE SWITCH */
+.bubble{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 10px;
+  border-radius:20px;
+  border:1px solid var(--border);
+  background:var(--card);
+  font-size:12px;
+}
 
-    .switch input{display:none}
+.switch input{display:none}
 
-    .slider{
-      width:46px;height:22px;background:#ccc;border-radius:20px;position:relative;cursor:pointer
-    }
+.slider{
+  width:40px;height:20px;background:#ccc;border-radius:20px;position:relative;cursor:pointer
+}
 
-    .slider::before{
-      content:"";
-      position:absolute;
-      width:18px;height:18px;
-      background:white;
-      border-radius:50%;
-      top:2px;left:2px;
-      transition:0.3s;
-    }
+.slider::before{
+  content:"";
+  position:absolute;
+  width:16px;height:16px;
+  background:white;
+  border-radius:50%;
+  top:2px;left:2px;
+  transition:.3s;
+}
 
-    input:checked + .slider::before{
-      transform:translateX(24px);
-    }
+.switch input:checked + .slider::before{
+  transform:translateX(20px);
+}
 
-    .hero{
-      padding:100px 10%;
-    }
+.hero{padding:100px 10%}
+.hero h1{font-size:42px;margin-bottom:20px}
+.hero p{color:var(--accent)}
 
-    .hero h1{font-size:42px;margin-bottom:20px}
-    .hero p{color:var(--accent)}
+.portfolio{padding:60px 10%;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
+.project{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.project img{width:100%;height:200px;object-fit:cover}
+.project-content{padding:15px}
 
-    .portfolio{
-      padding:60px 10%;
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:30px;
-    }
-
-    .project{
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:10px;
-      overflow:hidden;
-      transition:0.2s;
-    }
-
-    .project:hover{transform:translateY(-5px)}
-
-    .project img{width:100%;height:200px;object-fit:cover}
-    .project-content{padding:15px}
-
-    .about,.contact{padding:80px 10%;border-top:1px solid var(--border)}
-
-    footer{text-align:center;padding:40px;color:var(--accent)}
-  </style>
+.about,.contact{padding:80px 10%;border-top:1px solid var(--border)}
+footer{text-align:center;padding:40px;color:var(--accent)}
+</style>
 </head>
 <body>
 
@@ -131,25 +102,26 @@
       <a href="#contact" data-key="navContact">Kontakt</a>
     </nav>
 
-    <!-- LANGUAGE SWITCH -->
-    <div class="switch">
+    <!-- LANGUAGE BUBBLE -->
+    <div class="bubble">
       <span>PL</span>
-      <label>
+      <label class="switch">
         <input type="checkbox" id="langToggle">
         <span class="slider"></span>
       </label>
       <span>EN</span>
     </div>
 
-    <!-- DARK MODE -->
-    <div class="switch">
+    <!-- THEME BUBBLE -->
+    <div class="bubble">
       <span>☀</span>
-      <label>
+      <label class="switch">
         <input type="checkbox" id="themeToggle">
         <span class="slider"></span>
       </label>
       <span>🌙</span>
     </div>
+
   </div>
 </header>
 
@@ -159,24 +131,22 @@
 </section>
 
 <section id="portfolio" class="portfolio">
-  <div class="project"><a href="project1.html"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"></a><div class="project-content"><b>Dom jednorodzinny</b></div></div>
-  <div class="project"><a href="project2.html"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab"></a><div class="project-content"><b>Biurowiec</b></div></div>
-  <div class="project"><a href="project3.html"><img src="https://images.unsplash.com/photo-1505843513577-22bb7d21e455"></a><div class="project-content"><b>Osiedle</b></div></div>
+  <div class="project"><a href="project1.html"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"></a><div class="project-content"><b id="p1">Dom jednorodzinny</b></div></div>
+  <div class="project"><a href="project2.html"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab"></a><div class="project-content"><b id="p2">Biurowiec</b></div></div>
+  <div class="project"><a href="project3.html"><img src="https://images.unsplash.com/photo-1505843513577-22bb7d21e455"></a><div class="project-content"><b id="p3">Osiedle</b></div></div>
 </section>
 
 <section id="about" class="about">
-  <h2>O mnie</h2>
-  <p>Jestem architektem specjalizującym się w nowoczesnych projektach.</p>
+  <h2 id="aboutTitle">O mnie</h2>
+  <p id="aboutDesc">Jestem architektem specjalizującym się w nowoczesnych projektach.</p>
 </section>
 
 <section id="contact" class="contact">
-  <h2>Kontakt</h2>
+  <h2 id="contactTitle">Kontakt</h2>
   <p>Email: kontakt@architekt.pl</p>
 </section>
 
-<footer>
-  © 2026 Portfolio Architekta
-</footer>
+<footer id="footer">© 2026 Portfolio Architekta</footer>
 
 <script>
 const langToggle = document.getElementById('langToggle');
@@ -186,9 +156,23 @@ langToggle.addEventListener('change',()=>{
   if(langToggle.checked){
     title.innerText = "Modern architecture and thoughtful space";
     desc.innerText = "Portfolio of architectural projects.";
+    p1.innerText = "Single-family house";
+    p2.innerText = "Office building";
+    p3.innerText = "Housing estate";
+    aboutTitle.innerText = "About";
+    aboutDesc.innerText = "I am an architect specializing in modern design.";
+    contactTitle.innerText = "Contact";
+    footer.innerText = "© 2026 Architect Portfolio";
   } else {
     title.innerText = "Nowoczesna architektura i przemyślana przestrzeń";
     desc.innerText = "Portfolio projektów architektonicznych obejmujących budynki mieszkalne, przestrzenie publiczne oraz koncepcje urbanistyczne.";
+    p1.innerText = "Dom jednorodzinny";
+    p2.innerText = "Biurowiec";
+    p3.innerText = "Osiedle";
+    aboutTitle.innerText = "O mnie";
+    aboutDesc.innerText = "Jestem architektem specjalizującym się w nowoczesnych projektach.";
+    contactTitle.innerText = "Kontakt";
+    footer.innerText = "© 2026 Portfolio Architekta";
   }
 });
 
