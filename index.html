@@ -43,9 +43,19 @@ nav a{margin-left:20px;text-decoration:none;color:var(--text);}
 .toggle span.active{opacity:1;}
 .toggle::before{content:"";position:absolute;width:50%;height:100%;background:var(--bg);border-radius:20px;transition:.3s;}
 .toggle.right::before{left:50%;}
+
 .hero{text-align:center;}
 .hero h1{font-size:36px;margin-bottom:25px;}
 .hero p{max-width:700px;margin:auto;color:var(--accent);line-height:1.8;}
+
+/* Tytuł sekcji "Moje Projekty" */
+.section-title{
+  text-align:center;
+  font-size:28px;
+  font-weight:600;
+  margin-bottom:40px;
+  color:var(--text);
+}
 
 /* Slider */
 #portfolio{
@@ -133,6 +143,7 @@ footer{text-align:center;padding:40px 0;color:var(--accent);border-top:1px solid
 </section>
 
 <section id="portfolio" class="portfolio fade">
+  <div class="section-title">Moje Projekty</div>
   <button class="arrow left" id="prev">&#10094;</button>
   <div class="slider-window">
     <div class="projects-wrapper" id="projectsWrapper">
