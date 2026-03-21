@@ -26,11 +26,7 @@ body{
   color:var(--text);
   transition:.3s;
 }
-.container{
-  max-width:1200px;
-  margin:0 auto;
-  padding:0 20px;
-}
+.container{max-width:1200px;margin:0 auto;padding:0 20px;}
 .hero{text-align:center;margin-top:40px;}
 .hero h1{font-size:36px;margin-bottom:15px;}
 .hero p{max-width:700px;margin:auto;color:var(--accent);line-height:1.8;margin-bottom:30px;}
@@ -51,19 +47,43 @@ body{
 .about{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;text-align:center;gap:40px;margin-top:60px;}
 .about img{max-width:250px;width:100%;border-radius:12px;border:1px solid var(--border);}
 .about-text{max-width:700px;color:var(--accent);line-height:1.8;text-align:center;font-size:16px;margin-bottom:40px;}
+/* Galeria */
 .gallery{margin-top:60px;text-align:center;}
 .gallery-title{font-size:28px;font-weight:600;margin-bottom:25px;color:var(--text);}
-.gallery-thumbnails, .gallery-expanded{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;justify-content:center;}
-.gallery-img{width:100%;height:150px;object-fit:cover;border-radius:12px;cursor:pointer;transition: transform 0.3s ease;}
+.gallery-row{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  overflow-x:auto;
+  padding-bottom:10px;
+}
+.gallery-img{
+  width:200px;
+  height:150px;
+  object-fit:cover;
+  border-radius:12px;
+  cursor:pointer;
+  transition: transform 0.3s ease;
+  flex-shrink:0;
+}
 .gallery-img:hover{transform:scale(1.05);}
-#showMoreBtn,#showLessBtn{margin-top:20px;padding:10px 20px;border:none;background:var(--accent);color:#fff;border-radius:8px;cursor:pointer;transition:background 0.3s;}
-#showMoreBtn:hover,#showLessBtn:hover{background:#444;}
+#showMoreBtn{
+  display:inline-block;
+  margin-top:15px;
+  padding:6px 12px;
+  border:1px solid var(--border);
+  border-radius:20px;
+  background:var(--card);
+  cursor:pointer;
+  transition:.3s;
+  font-size:14px;
+}
+#showMoreBtn:hover{background:var(--accent);color:#fff;}
 .contact{text-align:center;margin-top:50px;}
 .contact p{color:var(--accent);line-height:1.6;}
 footer{text-align:center;padding:40px 0;color:var(--accent);border-top:1px solid var(--border);margin-top:40px;}
-@media(max-width:900px){.slider-window{width:100%;}.arrow{display:none;}.projects-wrapper{gap:20px;}.about{flex-direction:column; align-items:center; text-align:center;}.gallery-thumbnails,.gallery-expanded{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:900px){.slider-window{width:100%;}.arrow{display:none;}.projects-wrapper{gap:20px;}.about{flex-direction:column; align-items:center; text-align:center;}.gallery-img{width:45%;height:auto;}}
 @media(max-width:600px){.hero h1{font-size:26px;} nav a{margin-left:10px;font-size:13px;}}
-
 header{padding:25px 0;border-bottom:1px solid var(--border);background:var(--card);}
 .header-inner{display:flex;justify-content:space-between;align-items:center;}
 .logo{font-weight:600;letter-spacing:2px;}
@@ -78,6 +98,7 @@ nav a{margin-left:20px;text-decoration:none;color:var(--text);}
 </style>
 </head>
 <body>
+
 <header>
 <div class="container header-inner">
 <div class="logo">ARCHITEKT</div>
@@ -105,11 +126,11 @@ nav a{margin-left:20px;text-decoration:none;color:var(--text);}
   <button class="arrow left" id="prev">&#10094;</button>
   <div class="slider-window">
     <div class="projects-wrapper" id="projectsWrapper">
-      <div class="project"><a href="project1.html"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"></a><div class="project-content"><b id="p1">Dom jednorodzinny</b><p>Minimalistyczna forma, duże przeszklenia i integracja z naturą.</p></div></div>
-      <div class="project"><a href="project2.html"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab"></a><div class="project-content"><b id="p2">Biurowiec</b><p>Nowoczesny budynek biurowy z elastycznymi przestrzeniami i naturalnym światłem.</p></div></div>
-      <div class="project"><a href="project3.html"><img src="https://images.unsplash.com/photo-1505843513577-22bb7d21e455"></a><div class="project-content"><b id="p3">Osiedle</b><p>Koncepcja osiedla mieszkaniowego z naciskiem na zrównoważony rozwój i przestrzenie wspólne.</p></div></div>
-      <div class="project"><a href="project4.html"><img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914"></a><div class="project-content"><b id="p4">Restauracja</b><p>Elegancki projekt przestrzeni gastronomicznej.</p></div></div>
-      <div class="project"><a href="project5.html"><img src="https://images.unsplash.com/photo-1549924231-f129b911e442"></a><div class="project-content"><b id="p5">Centrum kultury</b><p>Przestrzeń kulturalna z otwartymi salami i elastycznym układem wydarzeń.</p></div></div>
+      <div class="project"><a href="#"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"></a><div class="project-content"><b id="p1">Dom jednorodzinny</b><p>Minimalistyczna forma, duże przeszklenia i integracja z naturą.</p></div></div>
+      <div class="project"><a href="#"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab"></a><div class="project-content"><b id="p2">Biurowiec</b><p>Nowoczesny budynek biurowy z elastycznymi przestrzeniami i naturalnym światłem.</p></div></div>
+      <div class="project"><a href="#"><img src="https://images.unsplash.com/photo-1505843513577-22bb7d21e455"></a><div class="project-content"><b id="p3">Osiedle</b><p>Koncepcja osiedla mieszkaniowego z naciskiem na zrównoważony rozwój i przestrzenie wspólne.</p></div></div>
+      <div class="project"><a href="#"><img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914"></a><div class="project-content"><b id="p4">Restauracja</b><p>Elegancki projekt przestrzeni gastronomicznej.</p></div></div>
+      <div class="project"><a href="#"><img src="https://images.unsplash.com/photo-1549924231-f129b911e442"></a><div class="project-content"><b id="p5">Centrum kultury</b><p>Przestrzeń kulturalna z otwartymi salami i elastycznym układem wydarzeń.</p></div></div>
     </div>
   </div>
   <button class="arrow right" id="next">&#10095;</button>
@@ -125,14 +146,14 @@ nav a{margin-left:20px;text-decoration:none;color:var(--text);}
 
 <section class="gallery fade" id="gallery">
   <h2 class="gallery-title">Galeria</h2>
-  <div class="gallery-thumbnails" id="galleryThumbnails">
+  <div class="gallery-row" id="galleryRow">
     <img src="https://via.placeholder.com/200x150?text=Grafika+1" alt="Grafika 1" class="gallery-img">
     <img src="https://via.placeholder.com/200x150?text=Grafika+2" alt="Grafika 2" class="gallery-img">
     <img src="https://via.placeholder.com/200x150?text=Grafika+3" alt="Grafika 3" class="gallery-img">
     <img src="https://via.placeholder.com/200x150?text=Grafika+4" alt="Grafika 4" class="gallery-img">
   </div>
-  <button id="showMoreBtn">Zobacz więcej</button>
-  <button id="showLessBtn" style="display:none;">Pokaż mniej</button>
+  <div class="bubble" id="showMoreBtn">Zobacz więcej</div>
+  <div class="bubble" id="showLessBtn" style="display:none;">Pokaż mniej</div>
   <div class="gallery-expanded" id="galleryExpanded" style="display:none;">
     <img src="https://via.placeholder.com/200x150?text=Grafika+5" alt="Grafika 5" class="gallery-img">
     <img src="https://via.placeholder.com/200x150?text=Grafika+6" alt="Grafika 6" class="gallery-img">
@@ -162,23 +183,14 @@ const prevBtn = document.getElementById('prev');
 let projects = Array.from(wrapper.children);
 const projectWidth = 280 + 35;
 let isMoving = false;
-function slideNext(){
-  if(isMoving) return; isMoving = true;
-  wrapper.style.transition = 'transform 0.5s ease';
-  wrapper.style.transform = `translateX(-${projectWidth}px)`;
-  setTimeout(()=>{
-    const first = projects.shift(); projects.push(first);
-    wrapper.style.transition='none'; wrapper.innerHTML='';
-    projects.forEach(p=>wrapper.appendChild(p));
-    wrapper.style.transform='translateX(0)'; isMoving=false;
-  },500);
-}
-function slidePrev(){
-  if(isMoving) return; isMoving=true;
-  const last = projects.pop(); projects.unshift(last);
-  wrapper.style.transition='none'; wrapper.innerHTML=''; projects.forEach(p=>wrapper.appendChild(p));
+function slideNext(){if(isMoving) return; isMoving=true;
+  wrapper.style.transition='transform 0.5s ease';
   wrapper.style.transform=`translateX(-${projectWidth}px)`;
-  setTimeout(()=>{wrapper.style.transition='transform 0.5s ease'; wrapper.style.transform='translateX(0)';},20);
+  setTimeout(()=>{projects.push(projects.shift()); wrapper.style.transition='none'; wrapper.innerHTML=''; projects.forEach(p=>wrapper.appendChild(p)); wrapper.style.transform='translateX(0)'; isMoving=false;},500);
+}
+function slidePrev(){if(isMoving) return; isMoving=true;
+  projects.unshift(projects.pop()); wrapper.style.transition='none'; wrapper.innerHTML=''; projects.forEach(p=>wrapper.appendChild(p));
+  wrapper.style.transform=`translateX(-${projectWidth}px)`; setTimeout(()=>{wrapper.style.transition='transform 0.5s ease'; wrapper.style.transform='translateX(0)';},20);
   setTimeout(()=>{isMoving=false},520);
 }
 nextBtn.addEventListener('click', slideNext);
@@ -190,39 +202,33 @@ const theme=document.getElementById('themeToggle');
 lang.onclick=()=>{
   lang.classList.toggle('right'); plBtn.classList.toggle('active'); enBtn.classList.toggle('active');
   if(enBtn.classList.contains('active')){
-    title.innerText="Modern architecture and thoughtful space";
-    desc.innerText="I design spaces that combine functionality and aesthetics.";
+    title.innerText="Modern architecture and thoughtful space"; desc.innerText="I design spaces that combine functionality and aesthetics.";
     p1.innerText="House"; p2.innerText="Office"; p3.innerText="Housing"; p4.innerText="Restaurant"; p5.innerText="Cultural center";
-    projectsTitle.innerText="Projects"; aboutTitle.innerText="About";
-    aboutDesc.innerText="I am an architect creating spaces that combine functionality and aesthetics. I draw inspiration from nature, light, and proportions. My designs are thoughtful and timeless, tailored to the needs of the user.";
-    contactTitle.innerText="Contact"; footer.innerText="© 2026 Architect Portfolio";
+    projectsTitle.innerText="Projects"; aboutTitle.innerText="About"; aboutDesc.innerText="I am an architect creating spaces that combine functionality and aesthetics. I draw inspiration from nature, light, and proportions. My designs are thoughtful and timeless, tailored to the needs of the user.";
+    contactTitle.innerText="Contact";
+    showMoreBtn.innerText="Show more"; showLessBtn.innerText="Show less"; footer.innerText="© 2026 Architect Portfolio";
   } else {
-    title.innerText="Nowoczesna architektura i przemyślana przestrzeń";
-    desc.innerText="Tworzę projekty, które łączą funkcjonalność, estetykę i kontekst miejsca.";
+    title.innerText="Nowoczesna architektura i przemyślana przestrzeń"; desc.innerText="Tworzę projekty, które łączą funkcjonalność, estetykę i kontekst miejsca.";
     p1.innerText="Dom jednorodzinny"; p2.innerText="Biurowiec"; p3.innerText="Osiedle"; p4.innerText="Restauracja"; p5.innerText="Centrum kultury";
-    projectsTitle.innerText="Projekty"; aboutTitle.innerText="O mnie";
-    aboutDesc.innerText="Jestem architektem tworzącym przestrzenie łączące funkcjonalność i estetykę. Inspiruję się naturą, światłem oraz proporcjami. Moje projekty są przemyślane i ponadczasowe. Chcę, aby każdy projekt był indywidualną odpowiedzią na potrzeby użytkownika i otoczenia.";
-    contactTitle.innerText="Kontakt"; footer.innerText="© 2026 Portfolio Architekta";
+    projectsTitle.innerText="Projekty"; aboutTitle.innerText="O mnie"; aboutDesc.innerText="Jestem architektem tworzącym przestrzenie łączące funkcjonalność i estetykę. Inspiruję się naturą, światłem oraz proporcjami. Moje projekty są przemyślane i ponadczasowe. Chcę, aby każdy projekt był indywidualną odpowiedzią na potrzeby użytkownika i otoczenia.";
+    contactTitle.innerText="Kontakt";
+    showMoreBtn.innerText="Zobacz więcej"; showLessBtn.innerText="Pokaż mniej"; footer.innerText="© 2026 Portfolio Architekta";
   }
 }
-theme.onclick=()=>{
-  theme.classList.toggle('right'); lightBtn.classList.toggle('active'); darkBtn.classList.toggle('active'); document.body.classList.toggle('dark');
-}
+theme.onclick=()=>{theme.classList.toggle('right'); lightBtn.classList.toggle('active'); darkBtn.classList.toggle('active'); document.body.classList.toggle('dark');}
 
 // Lightbox galerii
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightboxImg');
-document.querySelectorAll('.gallery-img').forEach(img=>{
-  img.addEventListener('click', ()=>{lightbox.style.display='flex'; lightboxImg.src=img.src;});
-});
-lightbox.addEventListener('click', ()=>{lightbox.style.display='none';});
+const lightbox=document.getElementById('lightbox');
+const lightboxImg=document.getElementById('lightboxImg');
+document.querySelectorAll('.gallery-img').forEach(img=>{img.addEventListener('click',()=>{lightbox.style.display='flex'; lightboxImg.src=img.src;});});
+lightbox.addEventListener('click',()=>{lightbox.style.display='none';});
 
 // Pokaz wiecej / mniej galerii
 const showMoreBtn = document.getElementById('showMoreBtn');
 const showLessBtn = document.getElementById('showLessBtn');
 const galleryExpanded = document.getElementById('galleryExpanded');
 showMoreBtn.addEventListener('click', ()=>{
-  galleryExpanded.style.display='grid'; showMoreBtn.style.display='none'; showLessBtn.style.display='inline-block';
+  galleryExpanded.style.display='flex'; showMoreBtn.style.display='none'; showLessBtn.style.display='inline-block';
 });
 showLessBtn.addEventListener('click', ()=>{
   galleryExpanded.style.display='none'; showMoreBtn.style.display='inline-block'; showLessBtn.style.display='none';
