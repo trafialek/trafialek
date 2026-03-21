@@ -144,7 +144,7 @@ footer{text-align:center;padding:40px 0;color:var(--accent);border-top:1px solid
 </section>
 
 <section id="portfolio" class="portfolio fade">
-  <div class="projects-title">Projekty</div> <!-- nowy nagłówek -->
+  <div class="projects-title" id="projectsTitle">Projekty</div>
   <button class="arrow left" id="prev">&#10094;</button>
   <div class="slider-window">
     <div class="projects-wrapper" id="projectsWrapper">
@@ -214,6 +214,50 @@ function slidePrev(){
 
 nextBtn.addEventListener('click', slideNext);
 prevBtn.addEventListener('click', slidePrev);
+
+// Zmiana języka
+const lang=document.getElementById('langToggle');
+const theme=document.getElementById('themeToggle');
+lang.onclick=()=>{
+  lang.classList.toggle('right');
+  plBtn.classList.toggle('active');
+  enBtn.classList.toggle('active');
+  if(enBtn.classList.contains('active')){
+    title.innerText="Modern architecture and thoughtful space";
+    desc.innerText="I design spaces that combine functionality and aesthetics.";
+    p1.innerText="House";
+    p2.innerText="Office";
+    p3.innerText="Housing";
+    p4.innerText="Restaurant";
+    p5.innerText="Cultural center";
+    projectsTitle.innerText="Projects";
+    aboutTitle.innerText="About";
+    aboutDesc.innerText="Architect focused on timeless and functional design.";
+    contactTitle.innerText="Contact";
+    footer.innerText="© 2026 Architect Portfolio";
+  }else{
+    title.innerText="Nowoczesna architektura i przemyślana przestrzeń";
+    desc.innerText="Tworzę projekty, które łączą funkcjonalność, estetykę i kontekst miejsca.";
+    p1.innerText="Dom jednorodzinny";
+    p2.innerText="Biurowiec";
+    p3.innerText="Osiedle";
+    p4.innerText="Restauracja";
+    p5.innerText="Centrum kultury";
+    projectsTitle.innerText="Projekty";
+    aboutTitle.innerText="O mnie";
+    aboutDesc.innerText="Jestem architektem skupionym na projektowaniu przestrzeni.";
+    contactTitle.innerText="Kontakt";
+    footer.innerText="© 2026 Portfolio Architekta";
+  }
+}
+
+// Zmiana motywu
+theme.onclick=()=>{
+  theme.classList.toggle('right');
+  lightBtn.classList.toggle('active');
+  darkBtn.classList.toggle('active');
+  document.body.classList.toggle('dark');
+}
 </script>
 
 </body>
