@@ -12,7 +12,6 @@
       --card:#ffffff;
       --border:#e2e2e2;
     }
-
     body.dark{
       --bg:#121212;
       --text:#eaeaea;
@@ -20,57 +19,45 @@
       --card:#1e1e1e;
       --border:#2c2c2c;
     }
-
     *{box-sizing:border-box;margin:0;padding:0}
-
     body{
       font-family: "Helvetica Neue", Arial, sans-serif;
       background:var(--bg);
       color:var(--text);
       transition:.3s;
     }
-
     .container{
       max-width:1200px;
       margin:0 auto;
       padding:0 20px;
     }
-
     section{
       margin:140px 0;
     }
-
     .fade{
       animation:fade .4s ease;
     }
-
     @keyframes fade{
       from{opacity:0;transform:translateY(5px)}
       to{opacity:1;transform:translateY(0)}
     }
-
     header{
       padding:25px 0;
       border-bottom:1px solid var(--border);
       background:var(--card);
     }
-
     .header-inner{
       display:flex;
       justify-content:space-between;
       align-items:center;
     }
-
     .logo{font-weight:600;letter-spacing:2px}
-
     .controls{display:flex;align-items:center;gap:15px}
-
     nav a{
       margin-left:20px;
       text-decoration:none;
       color:var(--text);
     }
-
     .bubble{
       display:flex;
       align-items:center;
@@ -79,13 +66,11 @@
       border:1px solid var(--border);
       background:var(--card);
     }
-
     .toggle{
       position:relative;
       display:flex;
       width:80px;
     }
-
     .toggle span{
       flex:1;
       text-align:center;
@@ -96,9 +81,7 @@
       transition:.3s;
       font-size:12px;
     }
-
     .toggle span.active{opacity:1}
-
     .toggle::before{
       content:"";
       position:absolute;
@@ -108,9 +91,7 @@
       border-radius:20px;
       transition:.3s;
     }
-
     .toggle.right::before{left:50%}
-
     .hero{text-align:center}
     .hero h1{font-size:36px;margin-bottom:25px}
     .hero p{max-width:700px;margin:auto;color:var(--accent);line-height:1.8}
@@ -119,28 +100,41 @@
     #portfolio {
       position: relative;
       overflow: hidden;
+      margin: 0 auto;
+      padding: 0 50px; /* miejsce na strzałki */
     }
-
     .projects-wrapper {
       display: flex;
       gap: 35px;
       transition: transform 0.4s ease;
     }
-
     .project{
       min-width:260px;
+      max-width:260px;
       background:var(--card);
       border:1px solid var(--border);
       border-radius:12px;
       overflow:hidden;
       flex-shrink:0;
     }
-    .project img{width:100%;height:180px;object-fit:cover}
-    .project-content{padding:18px}
-    .project-content b{display:block;margin-bottom:8px}
-    .project-content p{font-size:14px;color:var(--accent);line-height:1.6}
-
-    /* Strzałki */
+    .project img{
+      width:100%;
+      height:180px;
+      object-fit:cover;
+      display:block;
+    }
+    .project-content{
+      padding:18px;
+    }
+    .project-content b{
+      display:block;
+      margin-bottom:8px;
+    }
+    .project-content p{
+      font-size:14px;
+      color:var(--accent);
+      line-height:1.6;
+    }
     .arrow {
       position: absolute;
       top: 50%;
@@ -155,20 +149,19 @@
       transition: background 0.3s;
     }
     .arrow:hover { background: var(--accent); color: #fff; }
-    .arrow.left { left: -20px; }
-    .arrow.right { right: -20px; }
+    .arrow.left { left: 0; }
+    .arrow.right { right: 0; }
 
     .about,.contact{text-align:center}
     .about p{max-width:700px;margin:20px auto 0;color:var(--accent);line-height:1.8}
     .contact p{margin-top:10px;color:var(--accent)}
-
     footer{text-align:center;padding:40px 0;color:var(--accent);border-top:1px solid var(--border);margin-top:140px}
 
     @media(max-width:900px){
+      #portfolio { padding: 0; }
       .projects-wrapper { flex-wrap: wrap; justify-content: center; }
       .arrow { display: none; }
     }
-
     @media(max-width:600px){
       .hero h1{font-size:26px}
       nav a{margin-left:10px;font-size:13px}
