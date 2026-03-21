@@ -53,7 +53,7 @@ nav a{margin-left:20px;text-decoration:none;color:var(--text);}
   text-align:center;
   font-size:28px;
   font-weight:600;
-  margin:20px 0 30px; /* zmniejszony odstęp od hero */
+  margin:40px 0 30px; /* przybliżona cała sekcja do góry względem hero */
   color:var(--text);
 }
 
@@ -67,7 +67,7 @@ nav a{margin-left:20px;text-decoration:none;color:var(--text);}
 }
 .slider-window{
   overflow:hidden;
-  width:940px; /* większa szerokość */
+  width:940px; /* większa szerokość dla projektów */
 }
 .projects-wrapper{
   display:flex;
@@ -75,9 +75,9 @@ nav a{margin-left:20px;text-decoration:none;color:var(--text);}
   transition: transform 0.5s ease;
 }
 .project{
-  min-width:280px; /* większy projekt */
+  min-width:280px;
   max-width:280px;
-  height:300px; /* zwiększona wysokość kontenera */
+  height:auto; /* wysokość dopasowana do treści projektu */
   background:var(--card);
   border:1px solid var(--border);
   border-radius:12px;
@@ -97,7 +97,7 @@ nav a{margin-left:20px;text-decoration:none;color:var(--text);}
 .project-content p{font-size:14px;color:var(--accent);line-height:1.6;}
 .project:hover{
   transform:scale(1.05);
-  box-shadow:0 10px 20px rgba(0,0,0,0.15); /* lekko mocniejszy cień */
+  box-shadow:0 10px 20px rgba(0,0,0,0.15);
 }
 
 .arrow{
@@ -215,7 +215,7 @@ const wrapper = document.getElementById('projectsWrapper');
 const nextBtn = document.getElementById('next');
 const prevBtn = document.getElementById('prev');
 let projects = Array.from(wrapper.children);
-const projectWidth = 280 + 35; // nowa szerokość z gap
+const projectWidth = 280 + 35;
 let isMoving = false;
 
 function slideNext(){
