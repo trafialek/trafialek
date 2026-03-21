@@ -30,9 +30,19 @@ body{
   transition:.3s;
 }
 
+.fade{
+  animation:fade .4s ease;
+}
+
+@keyframes fade{
+  from{opacity:0;transform:translateY(5px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
 header{
-  padding:30px 8%;
+  padding:20px 6%;
   display:flex;
+  flex-wrap:wrap;
   justify-content:space-between;
   align-items:center;
   border-bottom:1px solid var(--border);
@@ -41,11 +51,11 @@ header{
 
 .logo{font-weight:600;letter-spacing:2px}
 
-.controls{display:flex;align-items:center;gap:15px}
+.controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 
-nav a{margin-left:20px;text-decoration:none;color:var(--text)}
+nav{display:flex;flex-wrap:wrap}
+nav a{margin-left:15px;text-decoration:none;color:var(--text);font-size:14px}
 
-/* ADVANCED SWITCH */
 .bubble{
   display:flex;
   align-items:center;
@@ -53,30 +63,26 @@ nav a{margin-left:20px;text-decoration:none;color:var(--text)}
   border-radius:20px;
   border:1px solid var(--border);
   background:var(--card);
-  font-size:12px;
 }
 
 .toggle{
   position:relative;
   display:flex;
-  width:90px;
-  border-radius:20px;
-  overflow:hidden;
+  width:80px;
 }
 
 .toggle span{
   flex:1;
   text-align:center;
-  padding:6px 0;
+  padding:5px 0;
   z-index:2;
   cursor:pointer;
-  transition:.3s;
   opacity:.5;
+  transition:.3s;
+  font-size:12px;
 }
 
-.toggle span.active{
-  opacity:1;
-}
+.toggle span.active{opacity:1}
 
 .toggle::before{
   content:"";
@@ -85,27 +91,44 @@ nav a{margin-left:20px;text-decoration:none;color:var(--text)}
   height:100%;
   background:var(--bg);
   border-radius:20px;
-  top:0;
-  left:0;
   transition:.3s;
-  z-index:1;
 }
 
-.toggle.right::before{
-  left:50%;
+.toggle.right::before{left:50%}
+
+.hero{padding:80px 8%}
+.hero h1{font-size:32px;margin-bottom:15px}
+.hero p{color:var(--accent);max-width:600px}
+
+.portfolio{
+  padding:50px 8%;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px
 }
 
-.hero{padding:100px 10%}
-.hero h1{font-size:42px;margin-bottom:20px}
-.hero p{color:var(--accent)}
+.project{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+}
 
-.portfolio{padding:60px 10%;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
-.project{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden}
-.project img{width:100%;height:200px;object-fit:cover}
+.project img{width:100%;height:180px;object-fit:cover}
 .project-content{padding:15px}
+.project-content p{font-size:13px;color:var(--accent);margin-top:5px}
 
-.about,.contact{padding:80px 10%;border-top:1px solid var(--border)}
-footer{text-align:center;padding:40px;color:var(--accent)}
+.about,.contact{padding:60px 8%;border-top:1px solid var(--border)}
+.about p{max-width:700px;color:var(--accent)}
+
+footer{text-align:center;padding:30px;color:var(--accent)}
+
+/* MOBILE */
+@media(max-width:600px){
+  .hero h1{font-size:24px}
+  nav a{margin-left:10px;font-size:13px}
+  .toggle{width:70px}
+}
 </style>
 </head>
 <body>
@@ -120,7 +143,6 @@ footer{text-align:center;padding:40px;color:var(--accent)}
       <a href="#contact">Kontakt</a>
     </nav>
 
-    <!-- LANGUAGE -->
     <div class="bubble">
       <div class="toggle" id="langToggle">
         <span id="plBtn" class="active">PL</span>
@@ -128,7 +150,6 @@ footer{text-align:center;padding:40px;color:var(--accent)}
       </div>
     </div>
 
-    <!-- THEME -->
     <div class="bubble">
       <div class="toggle" id="themeToggle">
         <span id="lightBtn" class="active">☀</span>
@@ -139,24 +160,45 @@ footer{text-align:center;padding:40px;color:var(--accent)}
   </div>
 </header>
 
-<section class="hero">
+<section class="hero fade" id="hero">
   <h1 id="title">Nowoczesna architektura i przemyślana przestrzeń</h1>
-  <p id="desc">Portfolio projektów architektonicznych obejmujących budynki mieszkalne, przestrzenie publiczne oraz koncepcje urbanistyczne.</p>
+  <p id="desc">Tworzę projekty, które łączą funkcjonalność, estetykę i kontekst miejsca. Każdy projekt to indywidualna odpowiedź na potrzeby użytkownika i otoczenia.</p>
 </section>
 
-<section class="portfolio">
-  <div class="project"><a href="#"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"></a><div class="project-content"><b id="p1">Dom</b></div></div>
-  <div class="project"><a href="#"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab"></a><div class="project-content"><b id="p2">Biuro</b></div></div>
-  <div class="project"><a href="#"><img src="https://images.unsplash.com/photo-1505843513577-22bb7d21e455"></a><div class="project-content"><b id="p3">Osiedle</b></div></div>
+<section class="portfolio fade" id="portfolio">
+  <div class="project">
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+    <div class="project-content">
+      <b id="p1">Dom jednorodzinny</b>
+      <p>Minimalistyczna forma, duże przeszklenia i integracja z naturą.</p>
+    </div>
+  </div>
+
+  <div class="project">
+    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab">
+    <div class="project-content">
+      <b id="p2">Biurowiec</b>
+      <p>Nowoczesna architektura biurowa oparta na modułowej strukturze.</p>
+    </div>
+  </div>
+
+  <div class="project">
+    <img src="https://images.unsplash.com/photo-1505843513577-22bb7d21e455">
+    <div class="project-content">
+      <b id="p3">Osiedle</b>
+      <p>Zrównoważone planowanie przestrzeni miejskiej i zieleni.</p>
+    </div>
+  </div>
 </section>
 
-<section class="about">
+<section class="about fade" id="about">
   <h2 id="aboutTitle">O mnie</h2>
-  <p id="aboutDesc">Jestem architektem specjalizującym się w nowoczesnych projektach.</p>
+  <p id="aboutDesc">Jestem architektem skupionym na tworzeniu przestrzeni, które są zarówno funkcjonalne, jak i ponadczasowe. Inspiruję się naturą, światłem i proporcjami.</p>
 </section>
 
-<section class="contact">
+<section class="contact fade" id="contact">
   <h2 id="contactTitle">Kontakt</h2>
+  <p>Masz projekt lub pomysł? Skontaktuj się — chętnie pomogę go zrealizować.</p>
   <p>Email: kontakt@architekt.pl</p>
 </section>
 
@@ -166,28 +208,41 @@ footer{text-align:center;padding:40px;color:var(--accent)}
 const lang = document.getElementById('langToggle');
 const theme = document.getElementById('themeToggle');
 
+function animate(){
+  document.querySelectorAll('.fade').forEach(el=>{
+    el.classList.remove('fade');
+    void el.offsetWidth;
+    el.classList.add('fade');
+  });
+}
+
 lang.addEventListener('click',()=>{
   lang.classList.toggle('right');
   plBtn.classList.toggle('active');
   enBtn.classList.toggle('active');
 
   if(enBtn.classList.contains('active')){
-    title.innerText = "Modern architecture";
-    desc.innerText = "Portfolio of projects";
+    title.innerText = "Modern architecture and thoughtful space";
+    desc.innerText = "I design spaces that combine functionality and aesthetics.";
     p1.innerText = "House";
     p2.innerText = "Office";
     p3.innerText = "Housing";
     aboutTitle.innerText = "About";
+    aboutDesc.innerText = "Architect focused on timeless and functional design.";
     contactTitle.innerText = "Contact";
+    footer.innerText = "© 2026 Architect Portfolio";
   } else {
     title.innerText = "Nowoczesna architektura i przemyślana przestrzeń";
-    desc.innerText = "Portfolio projektów architektonicznych";
-    p1.innerText = "Dom";
-    p2.innerText = "Biuro";
+    desc.innerText = "Tworzę projekty, które łączą funkcjonalność, estetykę i kontekst miejsca.";
+    p1.innerText = "Dom jednorodzinny";
+    p2.innerText = "Biurowiec";
     p3.innerText = "Osiedle";
     aboutTitle.innerText = "O mnie";
+    aboutDesc.innerText = "Jestem architektem skupionym na tworzeniu przestrzeni.";
     contactTitle.innerText = "Kontakt";
+    footer.innerText = "© 2026 Portfolio Architekta";
   }
+  animate();
 });
 
 theme.addEventListener('click',()=>{
