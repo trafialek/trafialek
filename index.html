@@ -65,7 +65,7 @@ nav a{text-decoration:none;color:var(--text);margin-left:20px;}
 .gallery{margin-top:60px;text-align:center;}
 .gallery-title{font-size:28px;font-weight:600;margin-bottom:25px;color:var(--text);}
 
-/* 4 zdjęcia obok siebie */
+/* 4 zdjęcia w rzędzie */
 .gallery-row{
   display:flex;justify-content:center;gap:15px;flex-wrap:wrap;
 }
@@ -73,7 +73,7 @@ nav a{text-decoration:none;color:var(--text);margin-left:20px;}
 .gallery-img:hover{transform:scale(1.05);}
 
 #showMoreBtn, #showLessBtn{
-  margin-top:25px; font-size:14px;
+  margin-top:25px; font-size:14px; display:inline-block;
 }
 
 .gallery-expanded{
@@ -145,20 +145,20 @@ footer{text-align:center;padding:40px 0;color:var(--accent);border-top:1px solid
   <h2 class="gallery-title">Galeria</h2>
 
   <div class="gallery-row">
-    <img src="https://pixabay.com/get/g93a0aaea44c48aebc7b78aa092d8fcacf4c3c697527d1959e4e5c98d2a63dca87a0f7d5977e484119a62f5bb0dfbec0d_640.jpg" alt="Grafika 1" class="gallery-img">
-    <img src="https://pixabay.com/get/g1a4abd8398d7861d306fb4179b3f68ea73b5f5144858e7df48a52d69f7e0a0e0f1cf43c77c9ccb8493c015e647a0383d_640.jpg" alt="Grafika 2" class="gallery-img">
-    <img src="https://pixabay.com/get/g2d92a5f9ee0bbf0b5f4f43745c9e8ad5ce535bb2e56adcbd84c9aeaadf38f1f1b4a66d70eae22703d_640.jpg" alt="Grafika 3" class="gallery-img">
-    <img src="https://pixabay.com/get/gbb49f617b88d0496e4d5f8da58bfdf84f35c3600b3f9b19cee5705c56632f1fbd18be13c6ab12ab39a4e6433ebc0ac045_640.jpg" alt="Grafika 4" class="gallery-img">
+    <img src="https://images.pexels.com/photos/3807692/pexels-photo-3807692.jpeg" alt="Architektura 1" class="gallery-img">
+    <img src="https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg" alt="Architektura 2" class="gallery-img">
+    <img src="https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg" alt="Architektura 3" class="gallery-img">
+    <img src="https://images.pexels.com/photos/373912/pexels-photo-373912.jpeg" alt="Architektura 4" class="gallery-img">
   </div>
 
   <div class="bubble" id="showMoreBtn">Zobacz więcej</div>
   <div class="bubble" id="showLessBtn" style="display:none;">Pokaż mniej</div>
 
   <div class="gallery-expanded" id="galleryExpanded">
-    <img src="https://pixabay.com/get/gfaf0ec0bdbb1f17f5d5afc46e762d89cf62f29df291b417b2bb5cd42c0c1f8d7_640.jpg" alt="Grafika 5" class="gallery-img">
-    <img src="https://pixabay.com/get/g0f523cee45c3efcea5834316d7cb7d02f32b5efbdaa6579b2c23fde4b9b5fde8_640.jpg" alt="Grafika 6" class="gallery-img">
-    <img src="https://pixabay.com/get/g75c8d8f3a4acae6ea069caf6bcc0c5ee6bb5f3e109705b1fb1c2b049c6d6ad18_640.jpg" alt="Grafika 7" class="gallery-img">
-    <img src="https://pixabay.com/get/g3edde5849a1f06c12100a68df87da0aa2bf3e48ba1c27b9a6e714ee5ba2a5d18_640.jpg" alt="Grafika 8" class="gallery-img">
+    <img src="https://images.pexels.com/photos/374710/pexels-photo-374710.jpeg" alt="Architektura 5" class="gallery-img">
+    <img src="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg" alt="Architektura 6" class="gallery-img">
+    <img src="https://images.pexels.com/photos/416405/pexels-photo-416405.jpeg" alt="Architektura 7" class="gallery-img">
+    <img src="https://images.pexels.com/photos/164634/pexels-photo-164634.jpeg" alt="Architektura 8" class="gallery-img">
   </div>
 </section>
 
@@ -171,16 +171,54 @@ footer{text-align:center;padding:40px 0;color:var(--accent);border-top:1px solid
 </div>
 
 <script>
-// … (skrypt slidera, język, motyw jak wcześniej)
-// galerii:
+// Slider projekty
+const wrapper = document.getElementById('projectsWrapper');
+const nextBtn = document.getElementById('next');
+const prevBtn = document.getElementById('prev');
+let projects = Array.from(wrapper.children);
+const projectWidth = 280 + 35;
+let isMoving = false;
+function slideNext(){if(isMoving) return; isMoving=true;
+  wrapper.style.transition='transform 0.5s ease';
+  wrapper.style.transform=`translateX(-${projectWidth}px)`;
+  setTimeout(()=>{projects.push(projects.shift()); wrapper.style.transition='none'; wrapper.innerHTML=''; projects.forEach(p=>wrapper.appendChild(p)); wrapper.style.transform='translateX(0)'; isMoving=false;},500);
+}
+function slidePrev(){if(isMoving) return; isMoving=true;
+  projects.unshift(projects.pop()); wrapper.style.transition='none'; wrapper.innerHTML=''; projects.forEach(p=>wrapper.appendChild(p));
+  wrapper.style.transform=`translateX(-${projectWidth}px)`; setTimeout(()=>{wrapper.style.transition='transform 0.5s ease'; wrapper.style.transform='translateX(0)';},20);
+  setTimeout(()=>{isMoving=false},520);
+}
+nextBtn.addEventListener('click', slideNext);
+prevBtn.addEventListener('click', slidePrev);
+
+// Zmiana języka i motywu
+const lang=document.getElementById('langToggle');
+const theme=document.getElementById('themeToggle');
+lang.onclick=()=>{
+  lang.classList.toggle('right'); plBtn.classList.toggle('active'); enBtn.classList.toggle('active');
+  if(enBtn.classList.contains('active')){
+    title.innerText="Modern architecture and thoughtful space"; desc.innerText="I design spaces that combine functionality and aesthetics.";
+    p1.innerText="House"; p2.innerText="Office"; p3.innerText="Housing"; p4.innerText="Restaurant"; p5.innerText="Cultural center";
+    projectsTitle.innerText="Projects"; aboutTitle.innerText="About"; aboutDesc.innerText="I am an architect creating spaces that combine functionality and aesthetics. I draw inspiration from nature, light, and proportions. My designs are thoughtful and timeless.";
+    contactTitle.innerText="Contact"; showMoreBtn.innerText="Show more"; showLessBtn.innerText="Show less"; footer.innerText="© 2026 Architect Portfolio";
+  } else {
+    title.innerText="Nowoczesna architektura i przemyślana przestrzeń"; desc.innerText="Tworzę projekty, które łączą funkcjonalność, estetykę i kontekst miejsca.";
+    p1.innerText="Dom"; p2.innerText="Biurowiec"; p3.innerText="Osiedle"; p4.innerText="Restauracja"; p5.innerText="Centrum kultury";
+    projectsTitle.innerText="Projekty"; aboutTitle.innerText="O mnie"; aboutDesc.innerText="Jestem architektem tworzącym przestrzenie łączące funkcjonalność i estetykę. Inspiruję się naturą, światłem oraz proporcjami.";
+    contactTitle.innerText="Kontakt"; showMoreBtn.innerText="Zobacz więcej"; showLessBtn.innerText="Pokaż mniej"; footer.innerText="© 2026 Portfolio Architekta";
+  }
+}
+theme.onclick=()=>{theme.classList.toggle('right'); lightBtn.classList.toggle('active'); darkBtn.classList.toggle('active'); document.body.classList.toggle('dark');}
+
+// Pokaz wiecej / mniej galerii
 const showMoreBtn=document.getElementById('showMoreBtn');
 const showLessBtn=document.getElementById('showLessBtn');
 const galleryExpanded=document.getElementById('galleryExpanded');
 showMoreBtn.addEventListener('click',()=>{
-  galleryExpanded.style.display='grid'; showMoreBtn.style.display='none'; showLessBtn.style.display='inline-flex';
+  galleryExpanded.style.display='grid'; showMoreBtn.style.display='none'; showLessBtn.style.display='inline-block';
 });
 showLessBtn.addEventListener('click',()=>{
-  galleryExpanded.style.display='none'; showMoreBtn.style.display='inline-flex'; showLessBtn.style.display='none';
+  galleryExpanded.style.display='none'; showMoreBtn.style.display='inline-block'; showLessBtn.style.display='none';
 });
 </script>
 
