@@ -48,8 +48,8 @@ nav a{margin-left:20px;text-decoration:none;color:var(--text);}
 .hero h1{font-size:36px;margin-bottom:25px;}
 .hero p{max-width:700px;margin:auto;color:var(--accent);line-height:1.8;}
 
-/* Tytuł sekcji "Moje Projekty" */
-.section-title{
+/* Tytuł sekcji Projekty */
+.projects-title{
   text-align:center;
   font-size:28px;
   font-weight:600;
@@ -62,7 +62,8 @@ nav a{margin-left:20px;text-decoration:none;color:var(--text);}
   position:relative;
   padding:0 50px;
   display:flex;
-  justify-content:center;
+  flex-direction:column;
+  align-items:center;
 }
 .slider-window{
   overflow:hidden;
@@ -143,7 +144,7 @@ footer{text-align:center;padding:40px 0;color:var(--accent);border-top:1px solid
 </section>
 
 <section id="portfolio" class="portfolio fade">
-  <div class="section-title">Moje Projekty</div>
+  <div class="projects-title">Projekty</div> <!-- nowy nagłówek -->
   <button class="arrow left" id="prev">&#10094;</button>
   <div class="slider-window">
     <div class="projects-wrapper" id="projectsWrapper">
