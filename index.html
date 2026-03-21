@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfolio Architekta</title>
 <style>
 :root{
@@ -21,7 +21,7 @@ body.dark{
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{
-  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-family:"Helvetica Neue", Arial, sans-serif;
   background:var(--bg);
   color:var(--text);
   transition:.3s;
@@ -31,16 +31,10 @@ body{
   margin:0 auto;
   padding:0 20px;
 }
-section{
-  margin:140px 0;
-}
-.fade{
-  animation:fade .4s ease;
-}
-@keyframes fade{
-  from{opacity:0;transform:translateY(5px)}
-  to{opacity:1;transform:translateY(0)}
-}
+section{margin:140px 0;}
+.fade{animation:fade .4s ease;}
+@keyframes fade{from{opacity:0;transform:translateY(5px)} to{opacity:1;transform:translateY(0)}}
+
 header{
   padding:25px 0;
   border-bottom:1px solid var(--border);
@@ -53,59 +47,31 @@ header{
 }
 .logo{font-weight:600;letter-spacing:2px}
 .controls{display:flex;align-items:center;gap:15px}
-nav a{
-  margin-left:20px;
-  text-decoration:none;
-  color:var(--text);
-}
+nav a{margin-left:20px;text-decoration:none;color:var(--text);}
 .bubble{
-  display:flex;
-  align-items:center;
-  padding:4px;
-  border-radius:20px;
-  border:1px solid var(--border);
+  display:flex;align-items:center;
+  padding:4px;border-radius:20px;border:1px solid var(--border);
   background:var(--card);
 }
-.toggle{
-  position:relative;
-  display:flex;
-  width:80px;
-}
-.toggle span{
-  flex:1;
-  text-align:center;
-  padding:6px 0;
-  z-index:2;
-  cursor:pointer;
-  opacity:.5;
-  transition:.3s;
-  font-size:12px;
-}
-.toggle span.active{opacity:1}
-.toggle::before{
-  content:"";
-  position:absolute;
-  width:50%;
-  height:100%;
-  background:var(--bg);
-  border-radius:20px;
-  transition:.3s;
-}
-.toggle.right::before{left:50%}
+.toggle{position:relative;display:flex;width:80px;}
+.toggle span{flex:1;text-align:center;padding:6px 0;z-index:2;cursor:pointer;opacity:.5;transition:.3s;font-size:12px;}
+.toggle span.active{opacity:1;}
+.toggle::before{content:"";position:absolute;width:50%;height:100%;background:var(--bg);border-radius:20px;transition:.3s;}
+.toggle.right::before{left:50%;}
+
 .hero{text-align:center}
 .hero h1{font-size:36px;margin-bottom:25px}
 .hero p{max-width:700px;margin:auto;color:var(--accent);line-height:1.8}
 
-/* Portfolio Slider */
-#portfolio {
+/* Slider */
+#portfolio{
   position: relative;
   overflow: hidden;
-  margin: 0 auto;
   padding: 0 50px;
 }
-.projects-wrapper {
-  display: flex;
-  gap: 35px;
+.projects-wrapper{
+  display:flex;
+  gap:35px;
   transition: transform 0.5s ease;
 }
 .project{
@@ -117,50 +83,38 @@ nav a{
   overflow:hidden;
   flex-shrink:0;
 }
-.project img{
-  width:100%;
-  height:180px;
-  object-fit:cover;
-  display:block;
-}
-.project-content{
-  padding:18px;
-}
-.project-content b{
-  display:block;
-  margin-bottom:8px;
-}
-.project-content p{
-  font-size:14px;
-  color:var(--accent);
-  line-height:1.6;
-}
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  font-size: 24px;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 10;
+.project img{width:100%;height:180px;object-fit:cover;display:block;}
+.project-content{padding:18px;}
+.project-content b{display:block;margin-bottom:8px;}
+.project-content p{font-size:14px;color:var(--accent);line-height:1.6;}
+
+.arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:50%;
+  font-size:24px;
+  padding:10px;
+  cursor:pointer;
+  z-index:10;
   transition: background 0.3s;
 }
-.arrow:hover { background: var(--accent); color: #fff; }
-.arrow.left { left: 0; }
-.arrow.right { right: 0; }
+.arrow:hover{background:var(--accent); color:#fff;}
+.arrow.left{left:0;}
+.arrow.right{right:0;}
 
 .about,.contact{text-align:center}
 .about p{max-width:700px;margin:20px auto 0;color:var(--accent);line-height:1.8}
 .contact p{margin-top:10px;color:var(--accent)}
+
 footer{text-align:center;padding:40px 0;color:var(--accent);border-top:1px solid var(--border);margin-top:140px}
 
 @media(max-width:900px){
-  #portfolio { padding: 0; }
-  .projects-wrapper { flex-wrap: wrap; justify-content: center; }
-  .arrow { display: none; }
+  #portfolio{padding:0;}
+  .projects-wrapper{flex-wrap:wrap;justify-content:center;}
+  .arrow{display:none;}
 }
 @media(max-width:600px){
   .hero h1{font-size:26px}
@@ -169,6 +123,7 @@ footer{text-align:center;padding:40px 0;color:var(--accent);border-top:1px solid
 </style>
 </head>
 <body>
+
 <header>
 <div class="container header-inner">
 <div class="logo">ARCHITEKT</div>
@@ -183,6 +138,7 @@ footer{text-align:center;padding:40px 0;color:var(--accent);border-top:1px solid
 </div>
 </div>
 </header>
+
 <div class="container">
 <section class="hero fade">
 <h1 id="title">Nowoczesna architektura i przemyślana przestrzeń</h1>
@@ -205,97 +161,61 @@ footer{text-align:center;padding:40px 0;color:var(--accent);border-top:1px solid
 <h2 id="aboutTitle">O mnie</h2>
 <p id="aboutDesc">Jestem architektem skupionym na tworzeniu przestrzeni, które są zarówno funkcjonalne, jak i ponadczasowe. Inspiruję się naturą, światłem i proporcjami.</p>
 </section>
+
 <section class="contact fade" id="contact">
 <h2 id="contactTitle">Kontakt</h2>
 <p>Masz projekt lub pomysł? Skontaktuj się — chętnie pomogę go zrealizować.</p>
 <p>Email: kontakt@architekt.pl</p>
 </section>
+
 <footer id="footer">© 2026 Portfolio Architekta</footer>
 </div>
 
 <script>
-/* Język */
-const lang=document.getElementById('langToggle');
-const theme=document.getElementById('themeToggle');
-lang.onclick=()=>{
-lang.classList.toggle('right');
-plBtn.classList.toggle('active');
-enBtn.classList.toggle('active');
-if(enBtn.classList.contains('active')){
-title.innerText="Modern architecture and thoughtful space";
-desc.innerText="I design spaces that combine functionality and aesthetics.";
-p1.innerText="House";
-p2.innerText="Office";
-p3.innerText="Housing";
-p4.innerText="Restaurant";
-p5.innerText="Cultural center";
-aboutTitle.innerText="About";
-aboutDesc.innerText="Architect focused on timeless and functional design.";
-contactTitle.innerText="Contact";
-footer.innerText="© 2026 Architect Portfolio";
-}else{
-title.innerText="Nowoczesna architektura i przemyślana przestrzeń";
-desc.innerText="Tworzę projekty, które łączą funkcjonalność, estetykę i kontekst miejsca.";
-p1.innerText="Dom jednorodzinny";
-p2.innerText="Biurowiec";
-p3.innerText="Osiedle";
-p4.innerText="Restauracja";
-p5.innerText="Centrum kultury";
-aboutTitle.innerText="O mnie";
-aboutDesc.innerText="Jestem architektem skupionym na projektowaniu przestrzeni.";
-contactTitle.innerText="Kontakt";
-footer.innerText="© 2026 Portfolio Architekta";
-}}
-
-/* Motyw */
-theme.onclick=()=>{
-theme.classList.toggle('right');
-lightBtn.classList.toggle('active');
-darkBtn.classList.toggle('active');
-document.body.classList.toggle('dark');
-}
-
-/* Slider płynny, nieskończony */
-const projectsWrapper = document.getElementById('projectsWrapper');
+/* Slider nieskończony z animacją */
+const wrapper = document.getElementById('projectsWrapper');
 const nextBtn = document.getElementById('next');
 const prevBtn = document.getElementById('prev');
 
-let projects = Array.from(projectsWrapper.children);
-const projectWidth = 260 + 35; // szerokość projektu + gap
-let isAnimating = false;
+let projects = Array.from(wrapper.children);
+const projectWidth = 260 + 35; // projekt + gap
+let isMoving = false;
 
-function moveNext(){
-  if(isAnimating) return;
-  isAnimating = true;
-  projectsWrapper.style.transition = 'transform 0.5s ease';
-  projectsWrapper.style.transform = `translateX(-${projectWidth}px)`;
+function slideNext(){
+  if(isMoving) return;
+  isMoving = true;
+  wrapper.style.transition = 'transform 0.5s ease';
+  wrapper.style.transform = `translateX(-${projectWidth}px)`;
   setTimeout(()=>{
     const first = projects.shift();
     projects.push(first);
-    projectsWrapper.style.transition = 'none';
-    projects.forEach(p=>projectsWrapper.appendChild(p));
-    projectsWrapper.style.transform = `translateX(0px)`;
-    isAnimating = false;
+    wrapper.style.transition = 'none';
+    wrapper.innerHTML = '';
+    projects.forEach(p=>wrapper.appendChild(p));
+    wrapper.style.transform = 'translateX(0)';
+    isMoving = false;
   },500);
 }
 
-function movePrev(){
-  if(isAnimating) return;
-  isAnimating = true;
+function slidePrev(){
+  if(isMoving) return;
+  isMoving = true;
   const last = projects.pop();
   projects.unshift(last);
-  projectsWrapper.style.transition = 'none';
-  projects.forEach(p=>projectsWrapper.appendChild(p));
-  projectsWrapper.style.transform = `translateX(-${projectWidth}px)`;
+  wrapper.style.transition = 'none';
+  wrapper.innerHTML = '';
+  projects.forEach(p=>wrapper.appendChild(p));
+  wrapper.style.transform = `translateX(-${projectWidth}px)`;
   setTimeout(()=>{
-    projectsWrapper.style.transition = 'transform 0.5s ease';
-    projectsWrapper.style.transform = `translateX(0px)`;
+    wrapper.style.transition = 'transform 0.5s ease';
+    wrapper.style.transform = 'translateX(0)';
   },20);
-  setTimeout(()=>{isAnimating=false},520);
+  setTimeout(()=>{isMoving=false},520);
 }
 
-nextBtn.addEventListener('click', moveNext);
-prevBtn.addEventListener('click', movePrev);
+nextBtn.addEventListener('click', slideNext);
+prevBtn.addEventListener('click', slidePrev);
 </script>
+
 </body>
 </html>
