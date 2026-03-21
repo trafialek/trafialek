@@ -104,16 +104,35 @@ nav a{margin-left:20px;text-decoration:none;color:var(--text);}
 .arrow.left{left:0;}
 .arrow.right{right:0;}
 
-.about,.contact{text-align:center;}
-.about p{max-width:700px;margin:20px auto 0;color:var(--accent);line-height:1.8;}
-.contact p{margin-top:10px;color:var(--accent);}
-footer{text-align:center;padding:40px 0;color:var(--accent);border-top:1px solid var(--border);margin-top:140px;}
+/* O mnie - zdjęcie i tekst */
+.about{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:flex-start;
+  text-align:left;
+  gap:40px;
+}
+.about img{
+  max-width:250px;
+  width:100%;
+  border-radius:12px;
+  border:1px solid var(--border);
+}
+.about-text{
+  max-width:700px;
+  color:var(--accent);
+  line-height:1.8;
+}
 
+/* Wyśrodkowanie w mobilnych */
 @media(max-width:900px){
   .slider-window{width:100%;}
   .arrow{display:none;}
   .projects-wrapper{gap:20px;}
+  .about{flex-direction:column; align-items:center; text-align:center;}
 }
+
 @media(max-width:600px){
   .hero h1{font-size:26px;}
   nav a{margin-left:10px;font-size:13px;}
@@ -159,8 +178,12 @@ footer{text-align:center;padding:40px 0;color:var(--accent);border-top:1px solid
 </section>
 
 <section class="about fade" id="about">
-<h2 id="aboutTitle">O mnie</h2>
-<p id="aboutDesc">Jestem architektem skupionym na tworzeniu przestrzeni, które są zarówno funkcjonalne, jak i ponadczasowe. Inspiruję się naturą, światłem i proporcjami.</p>
+  <img src="https://images.unsplash.com/photo-1603415526960-f0b7a3b6c0f4" alt="Moje zdjęcie">
+  <div class="about-text">
+    <h2 id="aboutTitle">O mnie</h2>
+    <p id="aboutDesc">Jestem architektem skupionym na tworzeniu przestrzeni, które są zarówno funkcjonalne, jak i ponadczasowe. Inspiruję się naturą, światłem i proporcjami.  
+    Mogę tutaj dodać więcej tekstu, opowiedzieć o swoim doświadczeniu, projektach, filozofii projektowania i inspiracjach. Dzięki temu odwiedzający poznają mnie lepiej.</p>
+  </div>
 </section>
 
 <section class="contact fade" id="contact">
@@ -173,6 +196,7 @@ footer{text-align:center;padding:40px 0;color:var(--accent);border-top:1px solid
 </div>
 
 <script>
+// Slider
 const wrapper = document.getElementById('projectsWrapper');
 const nextBtn = document.getElementById('next');
 const prevBtn = document.getElementById('prev');
@@ -215,7 +239,7 @@ function slidePrev(){
 nextBtn.addEventListener('click', slideNext);
 prevBtn.addEventListener('click', slidePrev);
 
-// Zmiana języka
+// Zmiana języka i motywu
 const lang=document.getElementById('langToggle');
 const theme=document.getElementById('themeToggle');
 lang.onclick=()=>{
@@ -232,7 +256,7 @@ lang.onclick=()=>{
     p5.innerText="Cultural center";
     projectsTitle.innerText="Projects";
     aboutTitle.innerText="About";
-    aboutDesc.innerText="Architect focused on timeless and functional design.";
+    aboutDesc.innerText="Architect focused on timeless and functional design. Here you can add more text about your experience, projects, and design philosophy.";
     contactTitle.innerText="Contact";
     footer.innerText="© 2026 Architect Portfolio";
   }else{
@@ -245,13 +269,11 @@ lang.onclick=()=>{
     p5.innerText="Centrum kultury";
     projectsTitle.innerText="Projekty";
     aboutTitle.innerText="O mnie";
-    aboutDesc.innerText="Jestem architektem skupionym na projektowaniu przestrzeni.";
+    aboutDesc.innerText="Jestem architektem skupionym na projektowaniu przestrzeni. Możesz tutaj dodać więcej tekstu o swoim doświadczeniu i projektach.";
     contactTitle.innerText="Kontakt";
     footer.innerText="© 2026 Portfolio Architekta";
   }
 }
-
-// Zmiana motywu
 theme.onclick=()=>{
   theme.classList.toggle('right');
   lightBtn.classList.toggle('active');
