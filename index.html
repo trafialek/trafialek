@@ -37,19 +37,17 @@ header{
 nav a{text-decoration:none;color:var(--text);margin-left:20px;}
 
 .bubble{
-  display:flex;align-items:center;
   padding:6px 14px;
   border-radius:20px;
   border:1px solid var(--border);
   background:var(--card);
   cursor:pointer;
   transition:.3s;
-  font-size:14px;
 }
 .bubble:hover{background:var(--accent);color:#fff;}
 
-.toggle{position:relative;display:flex;width:80px;}
-.toggle span{flex:1;text-align:center;padding:6px 0;opacity:.5;cursor:pointer}
+.toggle{display:flex;width:80px;position:relative;}
+.toggle span{flex:1;text-align:center;opacity:.5;cursor:pointer;padding:6px 0}
 .toggle span.active{opacity:1;}
 .toggle::before{
   content:"";position:absolute;width:50%;height:100%;
@@ -59,13 +57,14 @@ nav a{text-decoration:none;color:var(--text);margin-left:20px;}
 
 .hero{text-align:center;margin-top:40px;}
 .hero h1{font-size:36px;margin-bottom:15px;}
-.hero p{max-width:700px;margin:auto;color:var(--accent);line-height:1.8;margin-bottom:30px;}
+.hero p{max-width:700px;margin:auto;color:var(--accent);line-height:1.8;margin-bottom:40px;}
 
-.projects-title{text-align:center;font-size:28px;margin:20px 0;}
-#portfolio{display:flex;flex-direction:column;align-items:center;}
+.projects-title{text-align:center;font-size:28px;margin-bottom:20px;}
+#portfolio{position:relative;display:flex;flex-direction:column;align-items:center;}
 
 .slider-window{overflow:hidden;width:940px;}
 .projects-wrapper{display:flex;gap:35px;transition:.5s;}
+
 .project{
   min-width:280px;
   background:var(--card);
@@ -76,7 +75,7 @@ nav a{text-decoration:none;color:var(--text);margin-left:20px;}
 }
 .project:hover{transform:scale(1.05);}
 .project img{width:100%;height:180px;object-fit:cover;}
-.project-content{padding:15px;color:var(--accent);text-align:center;}
+.project-content{padding:15px;text-align:center;color:var(--accent);}
 
 .arrow{
   position:absolute;top:50%;
@@ -87,11 +86,11 @@ nav a{text-decoration:none;color:var(--text);margin-left:20px;}
   padding:10px;
   cursor:pointer;
 }
-.arrow.left{left:-30px;}
-.arrow.right{right:-30px;}
+.arrow.left{left:-40px;}
+.arrow.right{right:-40px;}
 
 .about{margin-top:80px;text-align:center;}
-.about-text{max-width:700px;margin:auto;color:var(--accent);}
+.about-text{max-width:700px;margin:auto;color:var(--accent);line-height:1.8;}
 
 .gallery{
   margin-top:80px;
@@ -99,17 +98,13 @@ nav a{text-decoration:none;color:var(--text);margin-left:20px;}
   padding:20px 0;
   transition:.4s;
 }
-
-/* 🔥 więcej przestrzeni po rozwinięciu */
-.gallery.expanded{
-  padding:60px 0;
-}
+.gallery.expanded{padding:60px 0;}
 
 .gallery-row,
 .gallery-expanded{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:20px; /* NIE ZMIENIAMY */
+  gap:20px;
 }
 
 .gallery-expanded{
@@ -117,7 +112,6 @@ nav a{text-decoration:none;color:var(--text);margin-left:20px;}
   display:none;
   transition:.5s;
 }
-
 .gallery-expanded.show{
   display:grid;
   opacity:1;
@@ -133,8 +127,7 @@ nav a{text-decoration:none;color:var(--text);margin-left:20px;}
 }
 .gallery-img:hover{transform:scale(1.05);}
 
-/* 🔥 przycisk niżej */
-#showMoreBtn, #showLessBtn{
+#showMoreBtn,#showLessBtn{
   margin-top:35px;
   display:inline-block;
 }
@@ -155,79 +148,165 @@ footer{
   justify-content:center;
   align-items:center;
 }
-#lightbox img{
-  max-width:90%;
-  max-height:90%;
-}
+#lightbox img{max-width:90%;max-height:90%;}
 </style>
 </head>
 
 <body>
 
+<header>
+<div class="container header-inner">
+<div class="logo">ARCHITEKT</div>
+
+<div class="controls">
+<nav>
+<a href="#portfolio">Portfolio</a>
+<a href="#about">O mnie</a>
+<a href="#gallery">Galeria</a>
+</nav>
+
+<div class="bubble">
+<div class="toggle" id="langToggle">
+<span id="plBtn" class="active">PL</span>
+<span id="enBtn">EN</span>
+</div>
+</div>
+
+<div class="bubble">
+<div class="toggle" id="themeToggle">
+<span id="lightBtn" class="active">☀</span>
+<span id="darkBtn">🌙</span>
+</div>
+</div>
+
+</div>
+</div>
+</header>
+
 <div class="container">
+
+<section class="hero">
+<h1 id="title">Nowoczesna architektura i przemyślana przestrzeń</h1>
+<p id="desc">Tworzę projekty, które łączą funkcjonalność, estetykę i kontekst miejsca.</p>
+</section>
+
+<section id="portfolio">
+<div class="projects-title" id="projectsTitle">Projekty</div>
+
+<button class="arrow left" id="prev">&#10094;</button>
+
+<div class="slider-window">
+<div class="projects-wrapper" id="projectsWrapper">
+
+<div class="project"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"><div class="project-content"><b>Dom</b><p>Minimalizm i natura.</p></div></div>
+<div class="project"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab"><div class="project-content"><b>Biurowiec</b><p>Nowoczesne przestrzenie pracy.</p></div></div>
+<div class="project"><img src="https://images.unsplash.com/photo-1505843513577-22bb7d21e455"><div class="project-content"><b>Osiedle</b><p>Zrównoważone projektowanie.</p></div></div>
+<div class="project"><img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914"><div class="project-content"><b>Restauracja</b><p>Światło i atmosfera.</p></div></div>
+<div class="project"><img src="https://images.unsplash.com/photo-1549924231-f129b911e442"><div class="project-content"><b>Kultura</b><p>Przestrzeń dla ludzi.</p></div></div>
+
+</div>
+</div>
+
+<button class="arrow right" id="next">&#10095;</button>
+</section>
+
+<section class="about" id="about">
+<div class="about-text">
+<h2>O mnie</h2>
+<p>Jestem architektem tworzącym funkcjonalne i estetyczne przestrzenie.</p>
+</div>
+</section>
 
 <section class="gallery" id="gallery">
 
-  <h2>Galeria</h2>
+<h2>Galeria</h2>
 
-  <div class="gallery-row">
-    <img src="https://images.pexels.com/photos/3807692/pexels-photo-3807692.jpeg" class="gallery-img">
-    <img src="https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg" class="gallery-img">
-    <img src="https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg" class="gallery-img">
-    <img src="https://images.pexels.com/photos/373912/pexels-photo-373912.jpeg" class="gallery-img">
-  </div>
+<div class="gallery-row">
+<img src="https://images.pexels.com/photos/3807692/pexels-photo-3807692.jpeg" class="gallery-img">
+<img src="https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg" class="gallery-img">
+<img src="https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg" class="gallery-img">
+<img src="https://images.pexels.com/photos/373912/pexels-photo-373912.jpeg" class="gallery-img">
+</div>
 
-  <div class="gallery-expanded" id="galleryExpanded">
-    <img src="https://images.pexels.com/photos/374710/pexels-photo-374710.jpeg" class="gallery-img">
-    <img src="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg" class="gallery-img">
-    <img src="https://images.pexels.com/photos/416405/pexels-photo-416405.jpeg" class="gallery-img">
-    <img src="https://images.pexels.com/photos/164634/pexels-photo-164634.jpeg" class="gallery-img">
-  </div>
+<div class="gallery-expanded" id="galleryExpanded">
+<img src="https://images.pexels.com/photos/374710/pexels-photo-374710.jpeg" class="gallery-img">
+<img src="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg" class="gallery-img">
+<img src="https://images.pexels.com/photos/416405/pexels-photo-416405.jpeg" class="gallery-img">
+<img src="https://images.pexels.com/photos/164634/pexels-photo-164634.jpeg" class="gallery-img">
+</div>
 
-  <div id="showMoreBtn" class="bubble">Zobacz więcej</div>
-  <div id="showLessBtn" class="bubble" style="display:none;">Pokaż mniej</div>
+<div id="showMoreBtn" class="bubble">Zobacz więcej</div>
+<div id="showLessBtn" class="bubble" style="display:none;">Pokaż mniej</div>
 
 </section>
 
+<footer>© 2026 Portfolio Architekta</footer>
+
 </div>
 
-<!-- lightbox -->
 <div id="lightbox"><img src=""></div>
 
 <script>
-const showMoreBtn=document.getElementById('showMoreBtn');
-const showLessBtn=document.getElementById('showLessBtn');
-const galleryExpanded=document.getElementById('galleryExpanded');
-const gallery=document.getElementById('gallery');
+// slider
+const wrapper=document.getElementById('projectsWrapper');
+let projects=[...wrapper.children];
+const width=315;
 
+next.onclick=()=>{
+wrapper.style.transform=`translateX(-${width}px)`;
+setTimeout(()=>{
+projects.push(projects.shift());
+wrapper.innerHTML="";
+projects.forEach(el=>wrapper.appendChild(el));
+wrapper.style.transition='none';
+wrapper.style.transform='translateX(0)';
+},500);
+wrapper.style.transition='.5s';
+};
+
+prev.onclick=()=>{
+projects.unshift(projects.pop());
+wrapper.innerHTML="";
+projects.forEach(el=>wrapper.appendChild(el));
+wrapper.style.transition='none';
+wrapper.style.transform=`translateX(-${width}px)`;
+setTimeout(()=>{
+wrapper.style.transition='.5s';
+wrapper.style.transform='translateX(0)';
+},20);
+};
+
+// galeria
 showMoreBtn.onclick=()=>{
-  galleryExpanded.style.display='grid';
-  setTimeout(()=>galleryExpanded.classList.add('show'),10);
-  gallery.classList.add('expanded'); // 🔥 więcej przestrzeni
-  showMoreBtn.style.display='none';
-  showLessBtn.style.display='inline-block';
-}
+galleryExpanded.style.display='grid';
+setTimeout(()=>galleryExpanded.classList.add('show'),10);
+gallery.classList.add('expanded');
+showMoreBtn.style.display='none';
+showLessBtn.style.display='inline-block';
+};
 
 showLessBtn.onclick=()=>{
-  galleryExpanded.classList.remove('show');
-  setTimeout(()=>galleryExpanded.style.display='none',500);
-  gallery.classList.remove('expanded'); // 🔥 powrót
-  showMoreBtn.style.display='inline-block';
-  showLessBtn.style.display='none';
-}
+galleryExpanded.classList.remove('show');
+setTimeout(()=>galleryExpanded.style.display='none',500);
+gallery.classList.remove('expanded');
+showMoreBtn.style.display='inline-block';
+showLessBtn.style.display='none';
+};
 
 // lightbox
-const lightbox=document.getElementById('lightbox');
-const lightboxImg=lightbox.querySelector('img');
-
 document.querySelectorAll('.gallery-img').forEach(img=>{
-  img.onclick=()=>{
-    lightbox.style.display='flex';
-    lightboxImg.src=img.src;
-  }
+img.onclick=()=>{
+lightbox.style.display='flex';
+lightbox.querySelector('img').src=img.src;
+};
 });
-
 lightbox.onclick=()=>lightbox.style.display='none';
+
+// theme
+themeToggle.onclick=()=>{
+themeToggle.classList.toggle('right');
+document.body.classList.toggle('dark');
+};
 </script>
 
 </body>
