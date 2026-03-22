@@ -174,14 +174,13 @@ function slidePrev(){if(isMoving) return; isMoving=true;
 nextBtn.addEventListener('click',slideNext);
 prevBtn.addEventListener('click',slidePrev);
 
-// Galeria - pokaż więcej / mniej z animacją
+// Galeria
 const showMoreBtn=document.getElementById('showMoreBtn');
 const showLessBtn=document.getElementById('showLessBtn');
 const galleryExpanded=document.getElementById('galleryExpanded');
 showMoreBtn.addEventListener('click',()=>{
   galleryExpanded.style.display='grid';
   setTimeout(()=>{galleryExpanded.classList.add('show');},10);
-  showMoreBtn.style.marginTop='20px';
   showMoreBtn.style.display='none'; showLessBtn.style.display='inline-block';
 });
 showLessBtn.addEventListener('click',()=>{
@@ -203,24 +202,37 @@ document.querySelectorAll('.gallery-img').forEach(img=>{
 closeLightbox.addEventListener('click',()=>{lightbox.style.display='none';});
 lightbox.addEventListener('click',(e)=>{if(e.target===lightbox) lightbox.style.display='none';});
 
-// Zmiana języka i motywu
+// Język + motyw
 const lang=document.getElementById('langToggle');
 const theme=document.getElementById('themeToggle');
 lang.onclick=()=>{
   lang.classList.toggle('right'); plBtn.classList.toggle('active'); enBtn.classList.toggle('active');
   if(enBtn.classList.contains('active')){
-    title.innerText="Modern architecture and thoughtful space"; desc.innerText="I design spaces that combine functionality and aesthetics.";
+    title.innerText="Modern architecture and thoughtful space";
+    desc.innerText="I design spaces that combine functionality and aesthetics.";
     p1.innerText="House"; p2.innerText="Office"; p3.innerText="Housing"; p4.innerText="Restaurant"; p5.innerText="Cultural center";
-    projectsTitle.innerText="Projects"; aboutTitle.innerText="About"; aboutDesc.innerText="I am an architect creating spaces that combine functionality and aesthetics. I draw inspiration from nature, light, and proportions. My designs are thoughtful and timeless.";
-    contactTitle.innerText="Contact"; showMoreBtn.innerText="Show more"; showLessBtn.innerText="Show less"; footer.innerText="© 2026 Architect Portfolio";
+    projectsTitle.innerText="Projects"; aboutTitle.innerText="About";
+    aboutDesc.innerText="I am an architect creating spaces that combine functionality and aesthetics.";
+    contactTitle.innerText="Contact";
+    showMoreBtn.innerText="Show more"; showLessBtn.innerText="Show less";
+    footer.innerText="© 2026 Architect Portfolio";
   } else {
-    title.innerText="Nowoczesna architektura i przemyślana przestrzeń"; desc.innerText="Tworzę projekty, które łączą funkcjonalność, estetykę i kontekst miejsca.";
+    title.innerText="Nowoczesna architektura i przemyślana przestrzeń";
+    desc.innerText="Tworzę projekty, które łączą funkcjonalność, estetykę i kontekst miejsca.";
     p1.innerText="Dom"; p2.innerText="Biurowiec"; p3.innerText="Osiedle"; p4.innerText="Restauracja"; p5.innerText="Centrum kultury";
-    projectsTitle.innerText="Projekty"; aboutTitle.innerText="O mnie"; aboutDesc.innerText="Jestem architektem tworzącym przestrzenie łączące funkcjonalność i estetykę. Inspiruję się naturą, światłem oraz proporcjami.";
-    contactTitle.innerText="Kontakt"; showMoreBtn.innerText="Zobacz więcej"; showLessBtn.innerText="Pokaż mniej"; footer.innerText="© 2026 Portfolio Architekta";
+    projectsTitle.innerText="Projekty"; aboutTitle.innerText="O mnie";
+    aboutDesc.innerText="Jestem architektem tworzącym przestrzenie łączące funkcjonalność i estetykę.";
+    contactTitle.innerText="Kontakt";
+    showMoreBtn.innerText="Zobacz więcej"; showLessBtn.innerText="Pokaż mniej";
+    footer.innerText="© 2026 Portfolio Architekta";
   }
 }
-theme.onclick=()=>{theme.classList.toggle('right'); lightBtn.classList.toggle('active'); darkBtn.classList.toggle('active'); document.body.classList.toggle('dark');}
+theme.onclick=()=>{
+  theme.classList.toggle('right');
+  lightBtn.classList.toggle('active');
+  darkBtn.classList.toggle('active');
+  document.body.classList.toggle('dark');
+}
 </script>
 
 </body>
