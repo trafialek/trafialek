@@ -20,8 +20,7 @@ header{padding:25px 0;border-bottom:1px solid var(--border);background:var(--car
 .header-inner{display:flex;justify-content:space-between;align-items:center;}
 .logo{font-weight:600;letter-spacing:2px;}
 .controls{display:flex;align-items:center;gap:15px;}
-nav a{text-decoration:none;color:var(--text);margin-left:20px;transition:.3s;}
-nav a:hover{color:var(--accent);}
+nav a{text-decoration:none;color:var(--text);margin-left:20px;}
 .bubble{display:flex;align-items:center;padding:6px 14px;border-radius:20px;border:1px solid var(--border);background:var(--card);cursor:pointer;transition:.3s;font-size:14px;color:var(--text);}
 .bubble:hover{background:var(--accent);color:#fff;}
 .toggle{position:relative;display:flex;width:80px;}
@@ -67,10 +66,6 @@ footer{text-align:center;padding:40px 0;color:var(--accent);border-top:1px solid
 #lightbox span{position:absolute;top:20px;right:30px;font-size:40px;color:#fff;cursor:pointer;}
 @media(max-width:900px){.gallery-row,.gallery-expanded{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:600px){.hero h1{font-size:26px;} nav a{margin-left:10px;font-size:13px;}}
-
-/* SCROLL ANIMATIONS */
-.fade {opacity:0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease;}
-.fade.show {opacity:1; transform: translateY(0);}
 </style>
 </head>
 <body>
@@ -122,24 +117,28 @@ footer{text-align:center;padding:40px 0;color:var(--accent);border-top:1px solid
 
 <section class="gallery fade" id="gallery">
   <h2 class="gallery-title">Galeria</h2>
+
   <div class="gallery-row">
     <img src="https://images.pexels.com/photos/3807692/pexels-photo-3807692.jpeg" alt="Architektura 1" class="gallery-img">
     <img src="https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg" alt="Architektura 2" class="gallery-img">
     <img src="https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg" alt="Architektura 3" class="gallery-img">
     <img src="https://images.pexels.com/photos/373912/pexels-photo-373912.jpeg" alt="Architektura 4" class="gallery-img">
   </div>
+
   <div class="gallery-expanded" id="galleryExpanded">
     <img src="https://images.pexels.com/photos/374710/pexels-photo-374710.jpeg" alt="Architektura 5" class="gallery-img">
     <img src="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg" alt="Architektura 6" class="gallery-img">
     <img src="https://images.pexels.com/photos/416405/pexels-photo-416405.jpeg" alt="Architektura 7" class="gallery-img">
     <img src="https://images.pexels.com/photos/164634/pexels-photo-164634.jpeg" alt="Architektura 8" class="gallery-img">
   </div>
+
   <div id="showMoreBtn" class="bubble">Zobacz więcej</div>
   <div id="showLessBtn" class="bubble" style="display:none;">Pokaż mniej</div>
 </section>
 
 <div id="lightbox"><span id="closeLightbox">&times;</span><img src="" alt=""/></div>
 
+<!-- CONTACT Z FORMULARZEM -->
 <section class="contact fade" id="contact">
 <h2 id="contactTitle">Kontakt</h2>
 
@@ -234,10 +233,7 @@ lang.onclick=()=>{
   }
 }
 theme.onclick=()=>{theme.classList.toggle('right'); lightBtn.classList.toggle('active'); darkBtn.classList.toggle('active'); document.body.classList.toggle('dark');}
+</script>
 
-// SCROLL REVEAL
-const faders = document.querySelectorAll('.fade');
-const appearOptions = {threshold:0.1, rootMargin:"0px 0px -50px 0px"};
-const appearOnScroll = new IntersectionObserver(function(entries, observer){
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
+</body>
+</html>
